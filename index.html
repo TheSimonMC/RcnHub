@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Manager - AutoClicker + NeuroClick + DiskFormat</title>
+  <title>RcnHub.de - Hub</title>
   <link rel="icon" type="image/x-icon" href="productmngr.ico">
   <style>
     :root {
       --xp-blue: #245edb;
       --xp-blue-dark: #0d3f9f;
-      --xp-green: #3ca323;
       --xp-bg: #ece9d8;
       --xp-border-light: #ffffff;
       --xp-border-dark: #808080;
@@ -44,9 +43,7 @@
     .window {
       background: var(--xp-bg);
       border: 2px solid var(--xp-blue-dark);
-      box-shadow:
-        inset 1px 1px 0 rgba(255,255,255,0.85),
-        6px 8px 20px rgba(0,0,0,0.35);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), 6px 8px 20px rgba(0,0,0,0.35);
       border-radius: 8px 8px 3px 3px;
       overflow: hidden;
     }
@@ -180,156 +177,10 @@
     }
 
     .main { display: grid; gap: 12px; }
-
-    .home-page {
-      display: grid;
-      gap: 12px;
-    }
-
-    .home-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .product-card {
-      background: #fffef7;
-      border-top: 1px solid #ffffff;
-      border-left: 1px solid #ffffff;
-      border-right: 1px solid #808080;
-      border-bottom: 1px solid #808080;
-      padding: 12px;
-      cursor: pointer;
-      min-height: 180px;
-      text-align: left;
-      color: #111;
-      font: inherit;
-    }
-
-    .product-card:hover {
-      background: #fffbe8;
-      outline: 1px solid #316ac5;
-    }
-
-    .product-card:active {
-      border-top-color: #808080;
-      border-left-color: #808080;
-      border-right-color: #ffffff;
-      border-bottom-color: #ffffff;
-      padding-top: 13px;
-      padding-bottom: 11px;
-    }
-
-    .product-card-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .product-card-icon {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-      border: 1px solid #aca899;
-      background: white;
-      padding: 3px;
-    }
-
-    .link-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .quick-link {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      color: #111;
-      text-decoration: none;
-      background: #fffef7;
-      border: 1px solid #aca899;
-      padding: 9px;
-      cursor: pointer;
-      font: inherit;
-      text-align: left;
-    }
-
-    .quick-link:hover {
-      background: #fffbe8;
-      border-color: #316ac5;
-    }
-
-    .dialog-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.28);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 100;
-    }
-
-    .dialog-backdrop.show {
-      display: flex;
-    }
-
-    .dialog-window {
-      width: min(620px, 100%);
-      background: var(--xp-bg);
-      border: 2px solid var(--xp-blue-dark);
-      box-shadow: 6px 8px 20px rgba(0,0,0,.4);
-      border-radius: 8px 8px 3px 3px;
-      overflow: hidden;
-    }
-
-    .dialog-body {
-      padding: 14px;
-    }
-
-    .help-topic {
-      background: #fffef7;
-      border: 1px solid #aca899;
-      padding: 10px;
-      margin-bottom: 9px;
-    }
-
-    .help-topic h3 {
-      margin-bottom: 5px;
-    }
-
-    .dialog-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      padding: 0 14px 14px;
-    }
-
-
-    .product-page {
-      display: none;
-      gap: 12px;
-    }
-
-    .product-page.active {
-      display: grid;
-    }
-
     .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; }
-
     .panel { padding: 12px; }
 
     h1, h2, h3, p { margin-top: 0; }
-
     h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: -0.3px; }
 
     h2 {
@@ -343,7 +194,12 @@
 
     .tagline { font-size: 14px; line-height: 1.55; max-width: 650px; }
 
-    .badge-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 12px 0;
+    }
 
     .badge {
       border: 1px solid #808080;
@@ -352,23 +208,7 @@
       box-shadow: inset 1px 1px #ffffff;
     }
 
-    .download-box {
-      text-align: center;
-      background: #ffffff;
-      border: 1px inset #999;
-      padding: 14px;
-    }
-
-    .product-icon {
-      width: 92px;
-      height: 92px;
-      margin: 4px auto 12px;
-      display: block;
-      object-fit: contain;
-      image-rendering: auto;
-    }
-
-    .xp-button, .primary-btn, .secondary-btn, .small-btn, .icon-btn, .tab {
+    .xp-button {
       display: inline-block;
       min-width: 0;
       text-align: center;
@@ -387,7 +227,7 @@
       border-radius: 0;
     }
 
-    .xp-button:active, .primary-btn:active, .secondary-btn:active, .small-btn:active, .icon-btn:active, .tab:active {
+    .xp-button:active {
       border-top-color: #404040;
       border-left-color: #404040;
       border-right-color: #ffffff;
@@ -396,192 +236,75 @@
       padding-bottom: 6px;
     }
 
-    button:disabled, input:disabled { cursor: not-allowed; opacity: 0.55; }
+    .primary { font-weight: bold; }
 
-    .primary, .primary-btn { font-weight: bold; }
+    .download-box {
+      text-align: center;
+      background: #ffffff;
+      border: 1px inset #999;
+      padding: 14px;
+    }
 
-    .grid {
+    .product-icon {
+      width: 92px;
+      height: 92px;
+      margin: 4px auto 12px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .hub-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
     }
 
-    .feature, .stat, .result-item, .history-item, .history-empty, .feedback, .mode-info-box {
+    .hub-card {
       background: #fffef7;
-      border: 1px solid #aca899;
-      padding: 10px;
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      padding: 12px;
+      cursor: pointer;
+      min-height: 140px;
+      text-align: left;
+      color: #111;
+      font: inherit;
+      text-decoration: none;
+      display: block;
     }
 
-    .feature { min-height: 120px; }
+    .hub-card:hover {
+      background: #fffbe8;
+      outline: 1px solid #316ac5;
+    }
+
+    .hub-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .hub-card-icon {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border: 1px solid #aca899;
+      background: white;
+      padding: 3px;
+    }
 
     .preview {
       background: #ffffff;
       border: 1px inset #999;
       padding: 10px;
-      min-height: 190px;
+      min-height: 150px;
       font-family: Consolas, "Courier New", monospace;
       white-space: pre-wrap;
       line-height: 1.45;
     }
-
-    .tester-layout { display: grid; grid-template-columns: 1fr; gap: 12px; }
-
-    .controls-panel { display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px; }
-
-    .control-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .mode-tabs, .duration-tabs { display: flex; flex-wrap: wrap; gap: 3px; }
-
-    .tab.active {
-      background: #316ac5;
-      color: #fff;
-      border-color: #0b3d91;
-      box-shadow: none;
-    }
-
-    .custom-time { display: flex; gap: 4px; align-items: center; margin-top: 6px; }
-
-    input[type=number] {
-      width: 100px;
-      font-family: Tahoma, Verdana, sans-serif;
-      font-size: 13px;
-      padding: 4px;
-      border: 1px inset #999;
-      background: white;
-      color: #111;
-    }
-
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-
-    .stat span, .result-item span {
-      display: block;
-      color: #333;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-
-    .stat strong { font-size: 24px; }
-
-    .progress-shell {
-      height: 14px;
-      background: white;
-      border: 1px inset #999;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(to right, #245edb, #3ca323);
-    }
-
-    .click-zone {
-      position: relative;
-      min-height: 300px;
-      border: 1px inset #999;
-      background: #ffffff;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      user-select: none;
-      touch-action: manipulation;
-    }
-
-    .click-zone.ready { cursor: pointer; }
-    .click-zone.running { cursor: crosshair; background: #fffef2; }
-    .click-zone.shake { animation: pulse .16s ease; }
-    @keyframes pulse { 50% { transform: scale(.996); } }
-
-    .zone-content { text-align: center; padding: 24px; max-width: 620px; z-index: 2; }
-    .status-kicker { color: #0d3f9f; font-size: 12px; text-transform: uppercase; font-weight: bold; margin-bottom: 10px; }
-    .zone-title { font-size: clamp(32px, 8vw, 70px); line-height: 1; font-weight: bold; letter-spacing: -1px; }
-    .zone-subtitle { margin: 14px auto 0; line-height: 1.55; max-width: 540px; }
-
-    .countdown {
-      position: absolute;
-      inset: 0;
-      display: none;
-      place-items: center;
-      background: rgba(236,233,216,.9);
-      z-index: 10;
-    }
-
-    .countdown.show { display: grid; }
-    .countdown-number { font-size: clamp(70px, 18vw, 140px); font-weight: bold; color: #0d3f9f; }
-
-    .target {
-      position: absolute;
-      width: 86px;
-      height: 86px;
-      border-radius: 999px;
-      background: radial-gradient(circle, #ffffff 0 10%, #ffcf40 11% 28%, #245edb 29% 58%, #0d3f9f 59% 100%);
-      border: 2px solid #111;
-      display: none;
-      place-items: center;
-      z-index: 6;
-    }
-
-    .target.show { display: grid; }
-    .target:after { content: ""; width: 32%; height: 32%; border-radius: 999px; border: 2px solid white; }
-
-    .ripple {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      border: 2px solid #245edb;
-      pointer-events: none;
-      transform: translate(-50%,-50%);
-      animation: ripple .52s ease-out forwards;
-      z-index: 8;
-    }
-
-    .miss-ripple { border-color: #d83412; }
-    @keyframes ripple { to { width: 110px; height: 110px; opacity: 0; } }
-
-    .actions { display: flex; gap: 4px; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .warning { color: #333; text-align: center; font-size: 12px; margin-bottom: 0; }
-
-    .result-card { display: none; }
-    .result-card.show { display: block; }
-    .result-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin: 10px 0; }
-    .result-item strong { font-size: 18px; }
-    .rank-badge { display: inline-block; border: 1px solid #808080; background: #fffef2; padding: 4px 7px; margin-bottom: 8px; }
-    .feedback { line-height: 1.45; margin: 10px 0 12px; }
-    .history-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .history-list { display: grid; gap: 8px; max-height: 330px; overflow: auto; padding-right: 4px; }
-    .history-item { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-    .history-main strong { display: block; }
-    .history-main span, .history-meta { display: block; color: #333; font-size: 12px; margin-top: 3px; }
-    .history-cps { text-align: right; font-weight: bold; color: #0d3f9f; }
-    .mode-info { line-height: 1.55; }
-    .kbd { display: inline-block; min-width: 24px; padding: 1px 6px; border: 1px solid #808080; background: #fffef2; font-weight: bold; }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%) translateY(24px);
-      padding: 8px 14px;
-      background: var(--xp-bg);
-      color: #111;
-      border-top: 1px solid #ffffff;
-      border-left: 1px solid #ffffff;
-      border-right: 1px solid #404040;
-      border-bottom: 1px solid #404040;
-      box-shadow: 4px 6px 18px rgba(0,0,0,.35);
-      opacity: 0;
-      pointer-events: none;
-      transition: .22s ease;
-      z-index: 50;
-    }
-
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     .statusbar {
       display: grid;
@@ -598,35 +321,20 @@
       min-height: 22px;
     }
 
-    .footer-note {
-      color: white;
-      text-shadow: 1px 1px #003399;
-      font-size: 12px;
-      text-align: center;
-    }
-
     @media (max-width: 860px) {
       body { align-items: flex-start; padding: 10px; }
-      .content, .hero, .controls-panel { grid-template-columns: 1fr; }
+      .content, .hero, .hub-grid { grid-template-columns: 1fr; }
       .sidebar { min-height: auto; }
-      .grid, .catalog-grid, .link-list { grid-template-columns: 1fr; }
-      .stats, .result-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 520px) {
-      .stats, .result-grid { grid-template-columns: 1fr; }
-      .custom-time { flex-direction: column; align-items: stretch; }
-      input[type=number], .small-btn, .primary-btn, .secondary-btn { width: 100%; }
     }
   </style>
 </head>
 <body>
   <main class="desktop">
-    <section class="window" aria-label="Software catalog">
+    <section class="window" aria-label="RcnHub software hub">
       <div class="titlebar">
         <div class="title-left">
           <span class="app-icon" aria-hidden="true"></span>
-          <span id="windowTitle">AutoClicker.exe - Product Manager</span>
+          <span>RcnHub.de - Product Hub</span>
         </div>
         <div class="window-controls" aria-hidden="true">
           <span class="control">_</span>
@@ -636,622 +344,146 @@
       </div>
 
       <nav class="toolbar" aria-label="Toolbar">
-        <button class="tool-btn" onclick="showHome()">Home</button>
-        <button class="tool-btn" onclick="scrollActive('overview')">File</button>
-        <button class="tool-btn" onclick="scrollActive('tools')">Tools</button>
-        <button class="tool-btn" onclick="scrollActive('setup')">Setup</button>
-        <button class="tool-btn" onclick="scrollActive('download')">Download</button>
-        <button class="tool-btn" onclick="openHelp()">Help</button>
+        <button class="tool-btn" onclick="scrollToPanel('overview')">Home</button>
+        <button class="tool-btn" onclick="scrollToPanel('products')">Products</button>
+        <button class="tool-btn" onclick="scrollToPanel('links')">Links</button>
+        <button class="tool-btn" onclick="scrollToPanel('info')">Info</button>
+        <button class="tool-btn" onclick="alert('RcnHub.de Hub links to the available RcnHub pages and tools.')">Help</button>
       </nav>
 
       <div class="content">
         <aside class="sidebar">
-          <div class="sidebar-title">Software Catalog</div>
-          <button class="nav-item active" id="nav-home" type="button" onclick="showHome()"><span class="small-icon"></span>Homepage</button>
-          <button class="nav-item" id="nav-autoclicker" type="button" onclick="showProduct('autoclicker')"><span class="small-icon"></span>AutoClicker.exe</button>
-          <button class="nav-item" id="nav-neuroclick" type="button" onclick="showProduct('neuroclick')"><span class="small-icon"></span>NeuroClick</button>
-          <button class="nav-item" id="nav-diskformat" type="button" onclick="showProduct('diskformat')"><span class="small-icon"></span>DiskFormat.exe</button>
-          <button class="nav-item" type="button" onclick="showHome(); scrollToPanel('quick-actions')"><span class="small-icon"></span>Utilities</button>
-          <button class="nav-item" type="button" onclick="openHelp()"><span class="small-icon"></span>Settings / Help</button>
+          <div class="sidebar-title">RcnHub Catalog</div>
+          <button class="nav-item active" type="button" onclick="scrollToPanel('overview')"><span class="small-icon"></span>Homepage</button>
+          <a class="nav-item" href="https://rcnhub.de/pm/"><span class="small-icon"></span>ProductManager</a>
+          <button class="nav-item" type="button" onclick="scrollToPanel('products')"><span class="small-icon"></span>Products</button>
+          <button class="nav-item" type="button" onclick="scrollToPanel('info')"><span class="small-icon"></span>Info</button>
           <br />
-          <div class="sidebar-title">Product Info</div>
-          <p><strong>Status:</strong> <span id="infoStatus">Available</span></p>
-          <p><strong>Platform:</strong> <span id="infoPlatform">Windows</span></p>
-          <p><strong>File:</strong> <span id="infoFile">Autoclicker.exe</span></p>
+          <div class="sidebar-title">Hub Info</div>
+          <p><strong>Status:</strong> Online</p>
+          <p><strong>Domain:</strong> RcnHub.de</p>
+          <p><strong>Items:</strong> 1 link</p>
         </aside>
 
         <section class="main">
-
-          <div class="home-page product-page active" id="page-home" data-product="home">
-            <div class="hero">
-              <section class="panel" id="home-overview">
-                <h1>Software Catalog</h1>
-                <p class="tagline">
-                  A Windows XP-style product center for your tools. Choose a product, open setup instructions,
-                  launch the CPS tester, download AutoClicker, or open DiskFormat instructions from one place.
-                </p>
-
-                <div class="home-actions">
-                  <button class="xp-button primary" onclick="showProduct('autoclicker')">Open AutoClicker</button>
-                  <button class="xp-button primary" onclick="showProduct('neuroclick')">Open NeuroClick</button>
-                  <button class="xp-button primary" onclick="showProduct('diskformat')">Open DiskFormat</button>
-                  <button class="xp-button" onclick="openHelp()">Help</button>
-                </div>
-              </section>
-
-              <section class="panel">
-                <div class="download-box">
-                  <img class="product-icon" src="icon.png" alt="Software catalog icon" />
-                  <h2>Current Catalog</h2>
-                  <p><strong>AutoClicker + NeuroClick + DiskFormat</strong></p>
-                  <p>Select a product from the catalog or use the quick actions below.</p>
-                </div>
-              </section>
-            </div>
-
-            <section class="panel" id="home-tools">
-              <h2>Products</h2>
-              <div class="catalog-grid">
-                <button class="product-card" type="button" onclick="showProduct('autoclicker')">
-                  <div class="product-card-head">
-                    <img class="product-card-icon" src="icon.png" alt="" />
-                    <div>
-                      <h3>AutoClicker.exe</h3>
-                      <p><strong>Windows tool</strong></p>
-                    </div>
-                  </div>
-                  <p>GUI autoclicker with adjustable CPS, start delay, human mode, live setting changes, and keyboard or mouse trigger support.</p>
-                  <span class="badge">Open Product</span>
-                </button>
-
-                <button class="product-card" type="button" onclick="showProduct('neuroclick')">
-                  <div class="product-card-head">
-                    <img class="product-card-icon" src="neuroclick.png" alt="" />
-                    <div>
-                      <h3>NeuroClick</h3>
-                      <p><strong>Browser CPS tester</strong></p>
-                    </div>
-                  </div>
-                  <p>Click speed test with modes, target challenges, live stats, local history, ranking, and AI-style result feedback.</p>
-                  <span class="badge">Open Tester</span>
-                </button>
-
-                <button class="product-card" type="button" onclick="showProduct('diskformat')">
-                  <div class="product-card-head">
-                    <img class="product-card-icon" src="format.png" alt="" />
-                    <div>
-                      <h3>DiskFormat.exe</h3>
-                      <p><strong>Windows admin tool</strong></p>
-                    </div>
-                  </div>
-                  <p>DiskPart-based disk and USB formatting utility for repairing or resetting storage devices. Requires administrator permissions.</p>
-                  <span class="badge">Open Product</span>
-                </button>
+          <div class="hero">
+            <section class="panel" id="overview">
+              <h1>RcnHub.de</h1>
+              <p class="tagline">
+                A Windows XP-style hub for RcnHub projects, tools, product pages, downloads, and software utilities.
+                For now, this hub links to the ProductManager page.
+              </p>
+              <div class="badge-row">
+                <span class="badge">RcnHub Main Hub</span>
+                <span class="badge">XP Style Interface</span>
+                <span class="badge">Product Links</span>
+                <span class="badge">Expandable Catalog</span>
               </div>
-            </section>
-
-            <section class="panel" id="quick-actions">
-              <h2>Quick Actions</h2>
-              <div class="link-list">
-                <a class="quick-link" href="Autoclicker.exe" download><span class="small-icon"></span>Download AutoClicker.exe</a>
-                <button class="quick-link" type="button" onclick="showProduct('autoclicker'); scrollToPanel('autoclicker-setup')"><span class="small-icon"></span>AutoClicker Setup</button>
-                <button class="quick-link" type="button" onclick="showProduct('neuroclick'); scrollToPanel('neuroclick-tools')"><span class="small-icon"></span>Open NeuroClick Test Console</button>
-                <button class="quick-link" type="button" onclick="showProduct('neuroclick'); setTimeout(() => document.getElementById('startBtn').click(), 250)"><span class="small-icon"></span>Start CPS Test</button>
-                <button class="quick-link" type="button" onclick="showProduct('diskformat')"><span class="small-icon"></span>Open DiskFormat.exe</button>
-                <a class="quick-link" href="DiskFormat.exe" download><span class="small-icon"></span>Download DiskFormat.exe</a>
-                <button class="quick-link" type="button" onclick="openHelp()"><span class="small-icon"></span>Open Help Center</button>
-              </div>
-            </section>
-
-          </div>
-
-          <div class="product-page" id="page-autoclicker" data-product="autoclicker">
-            <div class="hero">
-              <section class="panel" id="autoclicker-overview">
-                <h1>AutoClicker.exe</h1>
-                <p class="tagline">
-                  A GUI-only Windows autoclicker with adjustable CPS, start delay, live setting changes,
-                  human-like clicking behavior, and flexible keyboard or mouse-button triggers. No command
-                  line is required.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">Windows GUI App</span>
-                  <span class="badge">Adjustable CPS</span>
-                  <span class="badge">Human Mode</span>
-                  <span class="badge">Keyboard / Mouse Trigger</span>
-                </div>
-                <a class="xp-button primary" href="Autoclicker.exe" download>Download AutoClicker.exe</a>
-                <button class="xp-button" onclick="scrollToPanel('autoclicker-setup')">View Setup</button>
-              </section>
-
-              <section class="panel" id="autoclicker-download">
-                <div class="download-box">
-                  <img class="product-icon" src="icon.png" alt="AutoClicker icon" />
-                  <h2>Current Product</h2>
-                  <p><strong>Autoclicker.exe</strong></p>
-                  <p>A GUI Windows autoclicker with adjustable CPS, human-like timing, custom triggers and hold/toggle modes.</p>
-                  <a class="xp-button primary" href="Autoclicker.exe" download>Get EXE</a>
-                </div>
-              </section>
-            </div>
-
-            <section class="panel" id="autoclicker-tools">
-              <h2>Program Features</h2>
-              <div class="grid">
-                <article class="feature">
-                  <h3>GUI-Only Interface</h3>
-                  <p>Use the autoclicker from a normal Windows interface. No command line or terminal setup is needed.</p>
-                </article>
-                <article class="feature">
-                  <h3>Adjustable CPS</h3>
-                  <p>Set the clicks per second to control how fast the autoclicker runs.</p>
-                </article>
-                <article class="feature">
-                  <h3>Start Delay</h3>
-                  <p>Add a delay before clicking begins, giving you time to move to the correct window or position.</p>
-                </article>
-                <article class="feature">
-                  <h3>Live Setting Changes</h3>
-                  <p>Change supported settings while the app is already running without restarting the program.</p>
-                </article>
-                <article class="feature">
-                  <h3>Human Mode</h3>
-                  <p>Adds bursts, pauses, timing drift, stutters, and less robotic click behavior.</p>
-                </article>
-                <article class="feature">
-                  <h3>Keyboard or Mouse Trigger</h3>
-                  <p>Assign the trigger to a keyboard key or mouse button.</p>
-                </article>
-                <article class="feature">
-                  <h3>Hold or Toggle Mode</h3>
-                  <p>Use hold mode for temporary clicking or toggle mode to start and stop with one press.</p>
-                </article>
-                <article class="feature">
-                  <h3>Packaged EXE</h3>
-                  <p>Distributed as <strong>Autoclicker.exe</strong> for simple Windows use.</p>
-                </article>
-              </div>
-            </section>
-
-            <section class="panel" id="autoclicker-setup">
-              <h2>Setup</h2>
-              <div class="preview">1. Download Autoclicker.exe.
-2. Move it to any folder you want, such as Downloads, Desktop, or a tools folder.
-3. Double-click Autoclicker.exe to launch the program.
-4. Configure CPS, start delay, trigger key or mouse button, and hold/toggle mode.</div>
-              <br />
-              <a class="xp-button primary" href="Autoclicker.exe" download>Download AutoClicker.exe</a>
+              <a class="xp-button primary" href="https://rcnhub.de/pm/">Open ProductManager</a>
+              <button class="xp-button" onclick="scrollToPanel('products')">View Products</button>
             </section>
 
             <section class="panel">
-              <h2>Product Description</h2>
-              <div class="preview">AutoClicker.exe is a Windows autoclicker with a GUI-only interface, adjustable CPS, start delay, live setting changes, human-like click behavior, and flexible trigger controls. It supports keyboard keys or mouse buttons as triggers, with either hold mode or toggle mode. Human mode can add bursts, pauses, timing drift, stutters, and less robotic click timing.</div>
-            </section>
-          </div>
-
-
-          <div class="product-page" id="page-diskformat" data-product="diskformat">
-            <div class="hero">
-              <section class="panel" id="diskformat-overview">
-                <h1>DiskFormat.exe</h1>
-                <p class="tagline">
-                  A Windows administrator tool that uses DiskPart to format, reset, or repair disks and USB sticks.
-                  It is intended for storage cleanup and recovery workflows where the selected drive may need to be
-                  fully erased and rebuilt.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">Windows Admin Tool</span>
-                  <span class="badge">DiskPart Based</span>
-                  <span class="badge">USB / Disk Formatting</span>
-                  <span class="badge">Data Erasing Tool</span>
-                </div>
-                <a class="xp-button primary" href="DiskFormat.exe" download>Download DiskFormat.exe</a>
-                <button class="xp-button" onclick="scrollToPanel('diskformat-setup')">View Setup</button>
-              </section>
-
-              <section class="panel" id="diskformat-download">
-                <div class="download-box">
-                  <img class="product-icon" src="format.png" alt="DiskFormat icon" />
-                  <h2>Current Product</h2>
-                  <p><strong>DiskFormat.exe</strong></p>
-                  <p>DiskPart-based Windows utility for formatting or fixing disks and USB sticks. Run as administrator.</p>
-                  <a class="xp-button primary" href="DiskFormat.exe" download>Get EXE</a>
-                </div>
-              </section>
-            </div>
-
-            <section class="panel" id="diskformat-tools">
-              <h2>Program Features</h2>
-              <div class="grid">
-                <article class="feature">
-                  <h3>DiskPart Engine</h3>
-                  <p>Uses Windows DiskPart commands for formatting, cleaning, and preparing disks or USB drives.</p>
-                </article>
-                <article class="feature">
-                  <h3>USB Stick Support</h3>
-                  <p>Designed for removable drives such as USB sticks, flash drives, and other external storage devices.</p>
-                </article>
-                <article class="feature">
-                  <h3>Disk Repair Workflow</h3>
-                  <p>Can help reset drives that need a clean partition table or fresh formatting.</p>
-                </article>
-                <article class="feature">
-                  <h3>Administrator Required</h3>
-                  <p>Needs admin permissions because disk formatting and DiskPart access are protected Windows operations.</p>
-                </article>
-                <article class="feature">
-                  <h3>False Positive Notice</h3>
-                  <p>Windows or other antivirus tools may flag it because disk tools can modify or erase storage devices.</p>
-                </article>
-                <article class="feature">
-                  <h3>Destructive Operations</h3>
-                  <p>Formatting or cleaning the wrong disk can permanently erase files. Always verify the selected drive.</p>
-                </article>
+              <div class="download-box">
+                <img class="product-icon" src="productmngr.ico" alt="RcnHub icon" />
+                <h2>Current Hub</h2>
+                <p><strong>RcnHub.de</strong></p>
+                <p>Central link hub for available RcnHub projects and pages.</p>
+                <a class="xp-button primary" href="https://rcnhub.de/pm/">Visit /pm/</a>
               </div>
             </section>
-
-            <section class="panel" id="diskformat-setup">
-              <h2>Setup</h2>
-              <div class="preview">1. Download DiskFormat.exe.
-2. Right-click DiskFormat.exe and choose "Run as administrator".
-3. Select the correct disk or USB stick carefully.
-4. Confirm the operation only after checking the drive size and name.
-5. Let the tool run DiskPart formatting or repair commands.
-6. If Windows or an antivirus shows a warning, verify that the file is your own build before allowing it.</div>
-              <br />
-              <a class="xp-button primary" href="DiskFormat.exe" download>Download DiskFormat.exe</a>
-            </section>
-
-            <section class="panel">
-              <h2>Important Warning</h2>
-              <div class="preview">DiskFormat.exe can erase data.
-
-This tool uses DiskPart, so it must be run as administrator. DiskPart-based formatting tools can trigger Windows SmartScreen or antivirus false positives because they access and modify disks directly.
-
-Only use it on drives you own, back up important files first, and always double-check the selected disk before formatting.</div>
-            </section>
-
-            <section class="panel">
-              <h2>Product Description</h2>
-              <div class="preview">DiskFormat.exe is a Windows disk and USB formatting utility that uses DiskPart to reset, repair, or format storage devices. It requires administrator permissions and may be flagged by Windows or antivirus software as a false positive because it performs direct disk operations. The tool should be used carefully because formatting or cleaning a disk can permanently erase data.</div>
-            </section>
           </div>
 
-          <div class="product-page" id="page-neuroclick" data-product="neuroclick">
-            <div class="hero">
-              <section class="panel" id="neuroclick-overview">
-                <h1>NeuroClick CPS Tester</h1>
-                <p class="tagline">
-                  A browser-based CPS tester with selectable modes, adjustable test duration,
-                  target challenges, live stats, local history, and AI-style performance feedback.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">CPS Testing</span>
-                  <span class="badge">Target Modes</span>
-                  <span class="badge">Local History</span>
-                </div>
-                <button class="xp-button primary" id="overviewStartBtn" type="button">Start Test</button>
-                <button class="xp-button" onclick="scrollToPanel('neuroclick-tools')">View Tester</button>
-              </section>
-
-              <section class="panel" id="neuroclick-download">
-                <div class="download-box">
-                  <img class="product-icon" src="neuroclick.png" alt="NeuroClick icon" />
-                  <h2>Current Product</h2>
-                  <p><strong>NeuroClick</strong></p>
-                  <p>A CPS tester for measuring click speed, accuracy, performance rank, and recent results with AI-style feedback.</p>
-                  <button class="xp-button" id="soundToggle" type="button" aria-label="Toggle sound">Sound: On</button>
-                  <button class="xp-button" id="themeToggle" type="button" aria-label="Toggle theme">Theme</button>
-                </div>
-              </section>
-            </div>
-
-            <section class="panel tester-layout" id="neuroclick-tools" aria-label="CPS test panel">
-              <h2>NeuroClick Test Console</h2>
-              <section class="controls-panel" aria-label="Test controls">
-                <div class="control-group">
-                  <label>Mode</label>
-                  <div class="mode-tabs" id="modeTabs" role="tablist" aria-label="Mode selection"></div>
-                </div>
-                <div class="control-group">
-                  <label>Duration</label>
-                  <div class="duration-tabs" id="durationTabs" role="tablist" aria-label="Duration selection"></div>
-                  <div class="custom-time">
-                    <input id="customDuration" type="number" min="1" max="300" step="1" value="12" aria-label="Custom duration in seconds" />
-                    <button class="small-btn" id="customTimeBtn" type="button">Use Custom</button>
+          <section class="panel" id="products">
+            <h2>Products</h2>
+            <div class="hub-grid">
+              <a class="hub-card" href="https://rcnhub.de/pm/">
+                <div class="hub-card-head">
+                  <img class="hub-card-icon" src="productmngr.ico" alt="" />
+                  <div>
+                    <h3>ProductManager</h3>
+                    <p><strong>Software catalog</strong></p>
                   </div>
                 </div>
-              </section>
+                <p>Windows XP-style software catalog for AutoClicker, NeuroClick, DiskFormat, and related tools.</p>
+                <span class="badge">Open Page</span>
+              </a>
 
-              <div class="stats" aria-label="Live test stats">
-                <div class="stat"><span>Clicks</span><strong id="clicksStat">0</strong></div>
-                <div class="stat"><span>Time</span><strong id="timeStat">0.00s</strong></div>
-                <div class="stat"><span>CPS</span><strong id="cpsStat">0.00</strong></div>
-                <div class="stat"><span>Accuracy</span><strong id="accuracyStat">100%</strong></div>
-              </div>
-
-              <div class="progress-shell" aria-label="Remaining time progress"><div class="progress-bar" id="progressBar"></div></div>
-
-              <div class="click-zone ready" id="clickZone" tabindex="0" role="button" aria-label="Click test area. Press spacebar or click/tap during a running test.">
-                <div class="countdown" id="countdown" aria-live="assertive"><div class="countdown-number" id="countdownNumber">3</div></div>
-                <div class="target" id="target" aria-hidden="true"></div>
-                <div class="zone-content" id="zoneContent">
-                  <p class="status-kicker" id="statusKicker">Ready</p>
-                  <div class="zone-title" id="zoneTitle">Start Test</div>
-                  <p class="zone-subtitle" id="zoneSubtitle">Select a mode and duration, then start. During the test, click the zone or press <span class="kbd">Space</span>. Autoclickers should not be used.</p>
+              <button class="hub-card" type="button" onclick="alert('More RcnHub projects can be added here later.')">
+                <div class="hub-card-head">
+                  <span class="hub-card-icon small-icon" aria-hidden="true"></span>
+                  <div>
+                    <h3>Coming Soon</h3>
+                    <p><strong>Future RcnHub item</strong></p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="actions">
-                <button class="primary-btn" id="startBtn" type="button">Start Test</button>
-                <button class="secondary-btn" id="restartBtn" type="button" disabled>Restart</button>
-                <button class="secondary-btn" id="shareBtn" type="button" disabled>Share Result</button>
-              </div>
-              <p class="warning">Fair-use warning: autoclickers or macros invalidate the result. Use manual input only.</p>
-            </section>
-
-            <div class="hero" id="neuroclick-setup">
-              <section class="panel result-card" id="resultCard" aria-live="polite">
-                <h2>Latest Result</h2>
-                <div class="rank-badge" id="rankBadge">Rank: —</div>
-                <div class="result-grid">
-                  <div class="result-item"><span>Total clicks</span><strong id="resultClicks">0</strong></div>
-                  <div class="result-item"><span>Duration</span><strong id="resultDuration">0s</strong></div>
-                  <div class="result-item"><span>Average CPS</span><strong id="resultCps">0.00</strong></div>
-                  <div class="result-item"><span>Best burst</span><strong id="resultBurst">0.00</strong></div>
-                  <div class="result-item"><span>Accuracy</span><strong id="resultAccuracy">100%</strong></div>
-                  <div class="result-item"><span>Mode</span><strong id="resultMode">Normal</strong></div>
-                </div>
-                <p class="feedback" id="feedbackText">Complete a test to receive AI-style feedback.</p>
-                <div class="actions"><button class="primary-btn" id="resultRestartBtn" type="button">Restart Test</button></div>
-              </section>
-
-              <section class="panel">
-                <h2>Mode Intelligence</h2>
-                <p class="mode-info" id="modeInfo">Normal Mode measures raw clicks per second in a standard fixed-duration test.</p>
-                <br />
-                <div class="history-toolbar">
-                  <h2>Recent History</h2>
-                  <button class="small-btn" id="clearHistoryBtn" type="button">Clear</button>
-                </div>
-                <div class="history-list" id="historyList"></div>
-              </section>
+                <p>Placeholder for another RcnHub project, tool, download page, or service.</p>
+                <span class="badge">Empty Slot</span>
+              </button>
             </div>
-          </div>
+          </section>
+
+          <section class="panel" id="links">
+            <h2>Quick Links</h2>
+            <div class="hub-grid">
+              <a class="hub-card" href="https://rcnhub.de/pm/">
+                <div class="hub-card-head">
+                  <span class="small-icon" aria-hidden="true"></span>
+                  <div>
+                    <h3>https://rcnhub.de/pm/</h3>
+                    <p><strong>ProductManager</strong></p>
+                  </div>
+                </div>
+                <p>Open the current ProductManager page.</p>
+              </a>
+
+              <button class="hub-card" type="button" onclick="copyLink()">
+                <div class="hub-card-head">
+                  <span class="small-icon" aria-hidden="true"></span>
+                  <div>
+                    <h3>Copy Link</h3>
+                    <p><strong>Clipboard action</strong></p>
+                  </div>
+                </div>
+                <p>Copies the ProductManager URL to the clipboard.</p>
+              </button>
+            </div>
+          </section>
+
+          <section class="panel" id="info">
+            <h2>Hub Description</h2>
+            <div class="preview">RcnHub.de is a central hub for RcnHub projects and tools.
+
+Current item:
+- ProductManager: https://rcnhub.de/pm/
+
+More pages, projects, downloads, and software utilities can be added to this hub later while keeping the same Windows XP-style interface.</div>
+          </section>
         </section>
       </div>
 
       <div class="statusbar">
         <div class="status-cell" id="statusText">Ready</div>
-        <div class="status-cell">3 products</div>
+        <div class="status-cell">1 link</div>
       </div>
     </section>
   </main>
 
-
-  <div class="dialog-backdrop" id="helpDialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
-    <section class="dialog-window">
-      <div class="titlebar">
-        <div class="title-left">
-          <span class="app-icon" aria-hidden="true"></span>
-          <span id="helpTitle">Help Center</span>
-        </div>
-        <div class="window-controls" aria-hidden="true">
-          <button class="control close" type="button" onclick="closeHelp()">×</button>
-        </div>
-      </div>
-      <div class="dialog-body">
-        <div class="help-topic">
-          <h3>Homepage</h3>
-          <p>Use the start page to choose between AutoClicker and NeuroClick, download files, open setup, or start the CPS tester.</p>
-        </div>
-        <div class="help-topic">
-          <h3>AutoClicker.exe</h3>
-          <p>Download <strong>Autoclicker.exe</strong>, then open it normally on Windows.</p>
-        </div>
-        <div class="help-topic">
-          <h3>NeuroClick</h3>
-          <p>Open NeuroClick from the sidebar or start page. Select a mode and duration, then use manual clicks or Space during the running test.</p>
-        </div>
-        <div class="help-topic">
-          <h3>DiskFormat.exe</h3>
-          <p>DiskFormat uses DiskPart to format or repair disks and USB sticks. It requires administrator permissions and can erase data, so verify the selected drive before continuing.</p>
-        </div>
-        <div class="help-topic">
-          <h3>Antivirus Notice</h3>
-          <p>Windows or other antivirus programs may show a false positive because DiskFormat can directly modify disks. Only run your own trusted build.</p>
-        </div>
-      </div>
-      <div class="dialog-footer">
-        <button class="xp-button" type="button" onclick="showHome(); closeHelp()">Open Homepage</button>
-        <button class="xp-button primary" type="button" onclick="closeHelp()">Close</button>
-      </div>
-    </section>
-  </div>
-
-  <div class="toast" id="toast" role="status" aria-live="polite">Copied result</div>
-
   <script>
-    let activeProduct = "home";
-
     function scrollToPanel(id) {
       const element = document.getElementById(id);
       if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function scrollActive(section) {
-      const map = {
-        home: {
-          overview: "home-overview",
-          tools: "home-tools",
-          setup: "quick-actions",
-          download: "quick-actions"
-        },
-        diskformat: {
-          overview: "diskformat-overview",
-          tools: "diskformat-tools",
-          setup: "diskformat-setup",
-          download: "diskformat-download"
-        },
-        autoclicker: {
-          overview: "autoclicker-overview",
-          tools: "autoclicker-tools",
-          setup: "autoclicker-setup",
-          download: "autoclicker-download"
-        },
-        neuroclick: {
-          overview: "neuroclick-overview",
-          tools: "neuroclick-tools",
-          setup: "neuroclick-setup",
-          download: "neuroclick-download"
-        }
-      };
-      scrollToPanel(map[activeProduct][section] || map[activeProduct].overview);
+    async function copyLink() {
+      const url = "https://rcnhub.de/pm/";
+      try {
+        await navigator.clipboard.writeText(url);
+        document.getElementById("statusText").textContent = "Copied ProductManager link";
+      } catch {
+        document.getElementById("statusText").textContent = url;
+      }
     }
-
-    function showHome() {
-      activeProduct = "home";
-      document.getElementById("page-home").classList.add("active");
-      document.getElementById("page-autoclicker").classList.remove("active");
-      document.getElementById("page-neuroclick").classList.remove("active");
-      document.getElementById("page-diskformat").classList.remove("active");
-      document.getElementById("nav-home").classList.add("active");
-      document.getElementById("nav-autoclicker").classList.remove("active");
-      document.getElementById("nav-neuroclick").classList.remove("active");
-      document.getElementById("nav-diskformat").classList.remove("active");
-      document.getElementById("windowTitle").textContent = "Software Catalog - Product Manager";
-      document.getElementById("infoStatus").textContent = "Available";
-      document.getElementById("infoPlatform").textContent = "Windows / Browser";
-      document.getElementById("infoFile").textContent = "index.html";
-      document.getElementById("statusText").textContent = "Homepage";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function openHelp() {
-      document.getElementById("helpDialog").classList.add("show");
-    }
-
-    function closeHelp() {
-      document.getElementById("helpDialog").classList.remove("show");
-    }
-
-    function showProduct(product) {
-      activeProduct = product;
-
-      document.getElementById("page-home").classList.remove("active");
-      document.getElementById("page-autoclicker").classList.toggle("active", product === "autoclicker");
-      document.getElementById("page-neuroclick").classList.toggle("active", product === "neuroclick");
-      document.getElementById("page-diskformat").classList.toggle("active", product === "diskformat");
-      document.getElementById("nav-home").classList.remove("active");
-      document.getElementById("nav-autoclicker").classList.toggle("active", product === "autoclicker");
-      document.getElementById("nav-neuroclick").classList.toggle("active", product === "neuroclick");
-      document.getElementById("nav-diskformat").classList.toggle("active", product === "diskformat");
-
-      const info = {
-        autoclicker: {
-          title: "AutoClicker.exe - Product Manager",
-          platform: "Windows",
-          file: "Autoclicker.exe",
-          status: "Ready"
-        },
-        neuroclick: {
-          title: "NeuroClick CPS Tester - Product Manager",
-          platform: "Browser",
-          file: "Single-page app",
-          status: "NeuroClick loaded"
-        },
-        diskformat: {
-          title: "DiskFormat.exe - Product Manager",
-          platform: "Windows",
-          file: "DiskFormat.exe",
-          status: "DiskFormat loaded"
-        }
-      };
-
-      document.getElementById("windowTitle").textContent = info[product].title;
-      document.getElementById("infoStatus").textContent = "Available";
-      document.getElementById("infoPlatform").textContent = info[product].platform;
-      document.getElementById("infoFile").textContent = info[product].file;
-      document.getElementById("statusText").textContent = info[product].status;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    const modes={normal:{label:"Normal",info:"Normal Mode measures raw clicks per second in a standard fixed-duration test.",suggestedDurations:[1,5,10,15,30,60]},burst:{label:"Burst",info:"Burst Mode is tuned for short explosive tests. Try 1–3 seconds and focus on immediate acceleration.",suggestedDurations:[1,2,3,5]},endurance:{label:"Endurance",info:"Endurance Mode favors consistency over time. Longer tests reveal rhythm stability and fatigue control.",suggestedDurations:[30,60]},challenge:{label:"Challenge",info:"Challenge Mode moves a target around the zone. Only target hits count, so speed and tracking both matter.",suggestedDurations:[5,10,15,30]},accuracy:{label:"Accuracy",info:"Accuracy Mode penalizes missed clicks outside the target. Prioritize controlled input over raw speed.",suggestedDurations:[5,10,15,30]},coach:{label:"AI Coach",info:"AI Coach Mode runs a standard CPS test and gives a richer post-test analysis with practical tips.",suggestedDurations:[5,10,15,30,60]}};
-    const durations=[1,5,10,15,30,60],historyKey="neuroClickHistoryV1";
-    const state={mode:"normal",duration:10,status:"idle",clicks:0,misses:0,attempts:0,startTime:0,elapsed:0,timerId:null,countdownId:null,clickTimeline:[],bestBurst:0,latestResult:null,sound:true,audioContext:null};
-    const el={modeTabs:id("modeTabs"),durationTabs:id("durationTabs"),customDuration:id("customDuration"),customTimeBtn:id("customTimeBtn"),clickZone:id("clickZone"),target:id("target"),countdown:id("countdown"),countdownNumber:id("countdownNumber"),statusKicker:id("statusKicker"),zoneTitle:id("zoneTitle"),zoneSubtitle:id("zoneSubtitle"),clicksStat:id("clicksStat"),timeStat:id("timeStat"),cpsStat:id("cpsStat"),accuracyStat:id("accuracyStat"),progressBar:id("progressBar"),startBtn:id("startBtn"),restartBtn:id("restartBtn"),shareBtn:id("shareBtn"),resultCard:id("resultCard"),resultClicks:id("resultClicks"),resultDuration:id("resultDuration"),resultCps:id("resultCps"),resultBurst:id("resultBurst"),resultAccuracy:id("resultAccuracy"),resultMode:id("resultMode"),rankBadge:id("rankBadge"),feedbackText:id("feedbackText"),resultRestartBtn:id("resultRestartBtn"),historyList:id("historyList"),clearHistoryBtn:id("clearHistoryBtn"),modeInfo:id("modeInfo"),soundToggle:id("soundToggle"),themeToggle:id("themeToggle"),toast:id("toast")};
-
-    function id(x){return document.getElementById(x)}
-
-    function initNeuroClick(){
-      renderModeTabs();
-      renderDurationTabs();
-      bindEvents();
-      renderHistory();
-      updateControls();
-      updateStats();
-      updateModeInfo();
-      updateZoneIdleText();
-    }
-
-    function renderModeTabs(){el.modeTabs.innerHTML="";Object.entries(modes).forEach(([key,mode])=>{const b=document.createElement("button");b.type="button";b.className=`tab ${state.mode===key?"active":""}`;b.textContent=mode.label;b.role="tab";b.ariaSelected=String(state.mode===key);b.onclick=()=>selectMode(key);el.modeTabs.appendChild(b)})}
-    function renderDurationTabs(){el.durationTabs.innerHTML="";durations.forEach(d=>{const b=document.createElement("button");b.type="button";b.className=`tab ${state.duration===d?"active":""}`;b.textContent=d+"s";b.role="tab";b.ariaSelected=String(state.duration===d);b.onclick=()=>selectDuration(d);el.durationTabs.appendChild(b)})}
-    function bindEvents(){el.startBtn.onclick=startCountdown;el.restartBtn.onclick=resetTest;el.resultRestartBtn.onclick=()=>{resetTest();startCountdown()};el.customTimeBtn.onclick=useCustomDuration;el.clearHistoryBtn.onclick=clearHistory;el.soundToggle.onclick=toggleSound;el.themeToggle.onclick=toggleTheme;el.shareBtn.onclick=shareResult;el.clickZone.addEventListener("pointerdown",e=>{if(state.status==="running")handleZoneClick(e.clientX,e.clientY,e.target===el.target||el.target.contains(e.target))});document.addEventListener("keydown",e=>{if(e.code!=="Space")return;const t=document.activeElement?.tagName?.toLowerCase();if(t==="input"||t==="button")return;e.preventDefault();if(state.status==="running"){const r=el.clickZone.getBoundingClientRect();handleZoneClick(r.left+r.width/2,r.top+r.height/2,!requiresTargetHit())}})}
-    function selectMode(mode){if(!["idle","finished"].includes(state.status))return;state.mode=mode;if(!modes[mode].suggestedDurations.includes(state.duration))state.duration=modes[mode].suggestedDurations[0];resetStatsOnly();renderModeTabs();renderDurationTabs();updateModeInfo();updateZoneIdleText();updateControls()}
-    function selectDuration(d){if(!["idle","finished"].includes(state.status))return;state.duration=d;resetStatsOnly();renderDurationTabs();updateZoneIdleText()}
-    function useCustomDuration(){if(!["idle","finished"].includes(state.status))return;const v=Number(el.customDuration.value);if(!Number.isFinite(v)||v<1||v>300){showToast("Enter 1–300 seconds");return}state.duration=Math.round(v);renderDurationTabs();updateZoneIdleText();resetStatsOnly();showToast(`Custom duration set to ${state.duration}s`)}
-    function startCountdown(){showProduct("neuroclick");if(state.status==="countdown"||state.status==="running")return;resetStatsOnly();state.status="countdown";updateControls();el.countdown.classList.add("show");el.clickZone.classList.remove("ready");el.statusKicker.textContent="Calibration";el.zoneTitle.textContent="Get Ready";el.zoneSubtitle.textContent="The test starts after the countdown. Keep input manual and consistent.";let count=3;setCountdownNumber(count);state.countdownId=setInterval(()=>{count--;if(count>0)setCountdownNumber(count);else{clearInterval(state.countdownId);state.countdownId=null;el.countdown.classList.remove("show");beginTest()}},1000)}
-    function setCountdownNumber(v){el.countdownNumber.textContent=v;el.countdownNumber.style.animation="none";requestAnimationFrame(()=>el.countdownNumber.style.animation="")}
-    function beginTest(){state.status="running";state.startTime=performance.now();state.elapsed=0;state.clickTimeline=[];state.bestBurst=0;el.clickZone.classList.add("running");el.statusKicker.textContent=`${modes[state.mode].label} Mode`;el.zoneTitle.textContent="CLICK";el.zoneSubtitle.innerHTML='Click rapidly or press <span class="kbd">Space</span>. Time remaining is shown above.';if(requiresTargetHit())placeTarget();updateControls();tick()}
-    function tick(){const now=performance.now();state.elapsed=Math.min((now-state.startTime)/1000,state.duration);updateStats();if(state.elapsed>=state.duration){finishTest();return}state.timerId=requestAnimationFrame(tick)}
-    function handleZoneClick(x,y,hitTarget){const hit=requiresTargetHit()?hitTarget:true;state.attempts++;if(hit){state.clicks++;state.clickTimeline.push(performance.now());trimOldBursts();state.bestBurst=Math.max(state.bestBurst,getCurrentBurstCps());playClickSound();if(requiresTargetHit())placeTarget()}else{state.misses++;playMissSound()}createRipple(x,y,!hit);el.clickZone.classList.remove("shake");requestAnimationFrame(()=>el.clickZone.classList.add("shake"));updateStats()}
-    function requiresTargetHit(){return state.mode==="challenge"||state.mode==="accuracy"}
-    function placeTarget(){const r=el.clickZone.getBoundingClientRect(),size=Math.min(104,Math.max(70,r.width*.12)),pad=18,x=pad+Math.random()*Math.max(1,r.width-size-pad*2),y=pad+Math.random()*Math.max(1,r.height-size-pad*2);el.target.style.width=size+"px";el.target.style.height=size+"px";el.target.style.left=x+"px";el.target.style.top=y+"px";el.target.classList.add("show")}
-    function hideTarget(){el.target.classList.remove("show")}
-    function createRipple(x,y,miss){const r=el.clickZone.getBoundingClientRect(),s=document.createElement("span");s.className=`ripple ${miss?"miss-ripple":""}`;s.style.left=x-r.left+"px";s.style.top=y-r.top+"px";el.clickZone.appendChild(s);setTimeout(()=>s.remove(),540)}
-    function trimOldBursts(){const cutoff=performance.now()-1000;state.clickTimeline=state.clickTimeline.filter(t=>t>=cutoff)}
-    function getCurrentBurstCps(){trimOldBursts();return state.clickTimeline.length}
-    function finishTest(){cancelAnimationFrame(state.timerId);state.timerId=null;state.status="finished";hideTarget();el.clickZone.classList.remove("running");el.clickZone.classList.add("ready");const cps=state.clicks/state.duration,accuracy=getAccuracy(),rank=getRank(cps),result={id:Date.now(),mode:modes[state.mode].label,modeKey:state.mode,duration:state.duration,clicks:state.clicks,cps:Number(cps.toFixed(2)),burst:Number(state.bestBurst.toFixed(2)),accuracy:Number(accuracy.toFixed(1)),rank,date:new Date().toISOString()};state.latestResult=result;saveResult(result);renderResult(result);renderHistory();updateControls();el.statusKicker.textContent="Complete";el.zoneTitle.textContent=`${result.cps.toFixed(2)} CPS`;el.zoneSubtitle.textContent=`${result.rank} result. Review your AI-style analysis and restart when ready.`}
-    function resetTest(){clearInterval(state.countdownId);cancelAnimationFrame(state.timerId);state.countdownId=null;state.timerId=null;state.status="idle";hideTarget();resetStatsOnly();el.countdown.classList.remove("show");el.clickZone.classList.remove("running","shake");el.clickZone.classList.add("ready");updateZoneIdleText();updateControls()}
-    function resetStatsOnly(){state.clicks=0;state.misses=0;state.attempts=0;state.elapsed=0;state.clickTimeline=[];state.bestBurst=0;updateStats()}
-    function updateStats(){const cps=state.elapsed>0?state.clicks/state.elapsed:0,remaining=Math.max(0,state.duration-state.elapsed),progress=state.status==="running"?state.elapsed/state.duration*100:0;el.clicksStat.textContent=state.clicks;el.timeStat.textContent=remaining.toFixed(2)+"s";el.cpsStat.textContent=cps.toFixed(2);el.accuracyStat.textContent=getAccuracy().toFixed(0)+"%";el.progressBar.style.width=Math.min(100,progress)+"%"}
-    function getAccuracy(){if(!requiresTargetHit())return 100;return state.attempts===0?100:state.clicks/state.attempts*100}
-    function updateControls(){const locked=state.status==="countdown"||state.status==="running";document.querySelectorAll(".tab").forEach(b=>b.disabled=locked);el.customDuration.disabled=locked;el.customTimeBtn.disabled=locked;el.startBtn.disabled=locked;el.restartBtn.disabled=state.status==="idle";el.shareBtn.disabled=!state.latestResult;el.startBtn.textContent=state.status==="countdown"?"Starting...":state.status==="running"?"Running...":"Start Test"}
-    function updateModeInfo(){el.modeInfo.textContent=modes[state.mode].info}
-    function updateZoneIdleText(){el.statusKicker.textContent=`${modes[state.mode].label} Mode`;el.zoneTitle.textContent=`${state.duration}s Test`;el.zoneSubtitle.innerHTML='Press Start Test, then click the zone or press <span class="kbd">Space</span>. Autoclickers should not be used.'}
-    function getRank(cps){return cps<4?"Beginner":cps<6?"Average":cps<8?"Fast":cps<10?"Pro":"Elite"}
-    function getFeedback(r){const note=r.modeKey==="accuracy"?` Accuracy registered at ${r.accuracy.toFixed(1)}%, so cleaner targeting will raise your effective score.`:r.modeKey==="challenge"?" Target acquisition is part of this score; smoother cursor travel can improve the next run.":" Rhythm stability and low hand tension are the main paths to improvement.";if(r.cps<4)return`AI Coach: Your speed is developing. Focus on a steady rhythm first, then gradually increase tempo without tensing your hand.${note}`;if(r.cps<6)return`AI Coach: Average performance detected. Your click rhythm is functional; short daily practice can push you toward the fast tier.${note}`;if(r.cps<8)return`AI Coach: Strong clicking speed. You are above casual range; refine finger rhythm and reduce unnecessary movement to gain more CPS.${note}`;if(r.cps<10)return`AI Coach: Excellent speed. You are operating near competitive input tempo; consistency over longer durations is the next benchmark.${note}`;return`AI Coach: Elite performance detected. Your output is exceptionally fast; preserve accuracy, avoid strain, and use rest intervals between attempts.${note}`}
-    function renderResult(r){el.resultCard.classList.add("show");el.rankBadge.textContent=`Rank: ${r.rank}`;el.resultClicks.textContent=r.clicks;el.resultDuration.textContent=r.duration+"s";el.resultCps.textContent=r.cps.toFixed(2);el.resultBurst.textContent=r.burst.toFixed(2);el.resultAccuracy.textContent=r.accuracy.toFixed(1)+"%";el.resultMode.textContent=r.mode;el.feedbackText.textContent=getFeedback(r)}
-    function getHistory(){try{return JSON.parse(localStorage.getItem(historyKey))||[]}catch{return[]}}
-    function saveResult(r){localStorage.setItem(historyKey,JSON.stringify([r,...getHistory()].slice(0,10)))}
-    function clearHistory(){localStorage.removeItem(historyKey);renderHistory();showToast("History cleared")}
-    function renderHistory(){const h=getHistory();el.historyList.innerHTML="";if(!h.length){const p=document.createElement("p");p.className="history-empty";p.textContent="No saved runs yet. Complete a test and your recent results will appear here.";el.historyList.appendChild(p);return}h.forEach(item=>{const row=document.createElement("article"),date=new Date(item.date).toLocaleDateString(undefined,{month:"short",day:"numeric"});row.className="history-item";row.innerHTML=`<div class="history-main"><strong>${esc(item.mode)} · ${item.duration}s</strong><span>${esc(item.rank)} · ${item.clicks} clicks · ${item.accuracy.toFixed(0)}% acc</span><div class="history-meta">${date}</div></div><div class="history-cps">${item.cps.toFixed(2)}<br><span>CPS</span></div>`;el.historyList.appendChild(row)})}
-    function esc(v){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#039;",'"':"&quot;"}[c]))}
-    function toggleSound(){state.sound=!state.sound;el.soundToggle.textContent=state.sound?"Sound: On":"Sound: Off";showToast(state.sound?"Sound enabled":"Sound muted")}
-    function getAudioContext(){if(!state.audioContext){const AC=window.AudioContext||window.webkitAudioContext;if(AC)state.audioContext=new AC}return state.audioContext}
-    function playClickSound(){if(!state.sound)return;const ctx=getAudioContext();if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=620;g.gain.setValueAtTime(.035,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.045);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.05)}
-    function playMissSound(){if(!state.sound)return;const ctx=getAudioContext();if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type="triangle";o.frequency.value=180;g.gain.setValueAtTime(.04,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.08);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.085)}
-    function toggleTheme(){openHelp(); showToast("Help Center opened")}
-    async function shareResult(){if(!state.latestResult)return;const r=state.latestResult,text=`NeuroClick CPS Result: ${r.cps.toFixed(2)} CPS | ${r.clicks} clicks in ${r.duration}s | ${r.mode} Mode | Rank: ${r.rank} | Accuracy: ${r.accuracy.toFixed(1)}%`;try{await navigator.clipboard.writeText(text);showToast("Result copied to clipboard")}catch{showToast("Copy failed; clipboard unavailable")}}
-    function showToast(msg){el.toast.textContent=msg;el.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>el.toast.classList.remove("show"),1800)}
-
-    initNeuroClick();
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeHelp();
-    });
-
-    document.getElementById("helpDialog").addEventListener("click", event => {
-      if (event.target.id === "helpDialog") closeHelp();
-    });
-
-    const overviewStartBtn = document.getElementById('overviewStartBtn');
-    if (overviewStartBtn) overviewStartBtn.addEventListener('click', () => {
-      showProduct('neuroclick');
-      scrollToPanel('neuroclick-tools');
-      const start = document.getElementById('startBtn');
-      if (start && !start.disabled) start.click();
-    });
   </script>
 </body>
 </html>
