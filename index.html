@@ -443,6 +443,152 @@
       font-size: 0.92rem;
     }
 
+
+    /* Effects */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px) scale(0.985);
+      filter: blur(8px);
+      transition:
+        opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition-delay: var(--delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .topbar {
+      animation: topbarIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .hero-main {
+      animation: heroIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.08s both;
+    }
+
+    .profile {
+      animation: heroIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    }
+
+    .card,
+    .project,
+    .social,
+    .note {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after,
+    .project::after,
+    .social::after,
+    .note::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.07) 45%, transparent 70%);
+      opacity: 0;
+      transform: translateX(-35%);
+      transition: opacity 0.35s ease, transform 0.65s ease;
+    }
+
+    .card:hover::after,
+    .project:hover::after,
+    .social:hover::after,
+    .note:hover::after {
+      opacity: 1;
+      transform: translateX(35%);
+    }
+
+    .project,
+    .social,
+    .button,
+    .profile-image {
+      will-change: transform;
+    }
+
+    .profile-image {
+      transition: filter 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+    }
+
+    .profile:hover .profile-image {
+      filter: grayscale(20%);
+      transform: scale(1.015);
+      border-color: #555;
+    }
+
+    .project-icon,
+    .social-icon,
+    .brand-mark {
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .project:hover .project-icon,
+    .social:hover .social-icon,
+    .brand:hover .brand-mark {
+      transform: rotate(-3deg) scale(1.06);
+      background: #ffffff;
+    }
+
+    .arrow {
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .social:hover .arrow {
+      transform: translateX(4px);
+      color: var(--text);
+    }
+
+    @keyframes topbarIn {
+      from {
+        opacity: 0;
+        transform: translateY(-14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+
     @media (max-width: 900px) {
       .hero,
       .grid,
@@ -540,7 +686,7 @@
       </div>
 
       <div class="grid">
-        <a class="project" href="https://rcnhub.de/pm/">
+        <a class="project reveal" style="--delay: 80ms" href="https://rcnhub.de/pm/">
           <div>
             <div class="project-top">
               <div class="project-icon">PM</div>
@@ -551,7 +697,7 @@
           </div>
         </a>
 
-        <div class="project">
+        <div class="project reveal" style="--delay: 160ms">
           <div>
             <div class="project-top">
               <div class="project-icon">+</div>
@@ -562,7 +708,7 @@
           </div>
         </div>
 
-        <div class="project">
+        <div class="project reveal" style="--delay: 240ms">
           <div>
             <div class="project-top">
               <div class="project-icon">RCN</div>
@@ -584,7 +730,7 @@
       </div>
 
       <div class="social-list">
-        <a class="social" href="https://rcnhub.de/yt/" target="_blank" rel="noopener">
+        <a class="social reveal" style="--delay: 80ms" href="https://rcnhub.de/yt/" target="_blank" rel="noopener">
           <div class="social-main">
             <div class="social-icon">YT</div>
             <div>
@@ -595,7 +741,7 @@
           <span class="arrow">→</span>
         </a>
 
-        <a class="social" href="https://rcnhub.de/tv/" target="_blank" rel="noopener">
+        <a class="social reveal" style="--delay: 160ms" href="https://rcnhub.de/tv/" target="_blank" rel="noopener">
           <div class="social-main">
             <div class="social-icon">TW</div>
             <div>
@@ -606,7 +752,7 @@
           <span class="arrow">→</span>
         </a>
 
-        <a class="social disabled" href="#" aria-disabled="true">
+        <a class="social disabled reveal" style="--delay: 240ms" href="#" aria-disabled="true">
           <div class="social-main">
             <div class="social-icon">DC</div>
             <div>
@@ -617,7 +763,7 @@
           <span class="arrow">—</span>
         </a>
 
-        <a class="social" href="https://rcnhub.de/pm/">
+        <a class="social reveal" style="--delay: 320ms" href="https://rcnhub.de/pm/">
           <div class="social-main">
             <div class="social-icon">PM</div>
             <div>
@@ -638,7 +784,7 @@
         </div>
       </div>
 
-      <div class="note">
+      <div class="note reveal" style="--delay: 120ms">
         <strong>RcnHub.de</strong> is a personal hub for projects, tools, social links, and future pages.
         All programs are free.
       </div>
@@ -652,6 +798,22 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -70px 0px"
+    });
+
+    revealElements.forEach((element) => revealObserver.observe(element));
   </script>
 </body>
 </html>
