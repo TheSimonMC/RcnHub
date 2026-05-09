@@ -19,9 +19,15 @@
 
     * { box-sizing: border-box; }
 
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
+      min-height: 0;
       font-family: Tahoma, Verdana, Segoe UI, sans-serif;
       font-size: 13px;
       color: var(--text);
@@ -31,17 +37,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 28px;
+      padding: 18px;
     }
 
     .desktop {
       width: min(1050px, 100%);
+      height: calc(100vh - 36px);
       display: grid;
       grid-template-columns: 1fr;
       gap: 14px;
+      min-height: 0;
     }
 
     .window {
+      height: 100%;
+      max-height: 100%;
       background: var(--xp-bg);
       border: 2px solid var(--xp-blue-dark);
       box-shadow:
@@ -49,10 +59,13 @@
         6px 8px 20px rgba(0,0,0,0.35);
       border-radius: 8px 8px 3px 3px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .titlebar {
       height: 33px;
+      flex: 0 0 auto;
       background: linear-gradient(to bottom, #4a8bff 0%, var(--xp-blue) 45%, var(--xp-blue-dark) 100%);
       color: white;
       display: flex;
@@ -107,6 +120,7 @@
 
     .toolbar {
       display: flex;
+      flex: 0 0 auto;
       gap: 4px;
       padding: 6px;
       border-bottom: 1px solid var(--xp-border-mid);
@@ -125,11 +139,96 @@
 
     .tool-btn:hover { border-color: var(--xp-border-mid); background: #fffbe8; }
 
+
+
+    /* Windows XP-style internal scrollbars */
+    .main,
+    .sidebar,
+    .history-list {
+      scrollbar-width: auto;
+      scrollbar-color: #c9c5b8 #f4f2e8;
+    }
+
+    .main::-webkit-scrollbar,
+    .sidebar::-webkit-scrollbar,
+    .history-list::-webkit-scrollbar {
+      width: 17px;
+      height: 17px;
+      background: #f4f2e8;
+    }
+
+    .main::-webkit-scrollbar-track,
+    .sidebar::-webkit-scrollbar-track,
+    .history-list::-webkit-scrollbar-track {
+      background: #f4f2e8;
+      border-left: 1px solid #aca899;
+      box-shadow: inset 1px 0 0 #ffffff;
+    }
+
+    .main::-webkit-scrollbar-thumb,
+    .sidebar::-webkit-scrollbar-thumb,
+    .history-list::-webkit-scrollbar-thumb {
+      background: linear-gradient(to right, #ffffff 0%, #dcd8c8 16%, #c9c5b8 100%);
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      box-shadow: inset -1px -1px 0 #aca899, inset 1px 1px 0 #f7f5ec;
+    }
+
+    .main::-webkit-scrollbar-thumb:hover,
+    .sidebar::-webkit-scrollbar-thumb:hover,
+    .history-list::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to right, #ffffff 0%, #ece9d8 18%, #d4d0c0 100%);
+    }
+
+    .main::-webkit-scrollbar-corner,
+    .sidebar::-webkit-scrollbar-corner,
+    .history-list::-webkit-scrollbar-corner {
+      background: #ece9d8;
+      border-top: 1px solid #aca899;
+      border-left: 1px solid #aca899;
+    }
+
+    .main::-webkit-scrollbar-button,
+    .sidebar::-webkit-scrollbar-button,
+    .history-list::-webkit-scrollbar-button {
+      width: 17px;
+      height: 17px;
+      background: linear-gradient(to bottom, #ffffff, #ece9d8);
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      display: block;
+    }
+
+    .main::-webkit-scrollbar-button:vertical:decrement,
+    .sidebar::-webkit-scrollbar-button:vertical:decrement,
+    .history-list::-webkit-scrollbar-button:vertical:decrement {
+      background:
+        linear-gradient(45deg, transparent 50%, #111 50%) 5px 7px / 4px 4px no-repeat,
+        linear-gradient(-45deg, transparent 50%, #111 50%) 8px 7px / 4px 4px no-repeat,
+        linear-gradient(to bottom, #ffffff, #ece9d8);
+    }
+
+    .main::-webkit-scrollbar-button:vertical:increment,
+    .sidebar::-webkit-scrollbar-button:vertical:increment,
+    .history-list::-webkit-scrollbar-button:vertical:increment {
+      background:
+        linear-gradient(135deg, transparent 50%, #111 50%) 5px 6px / 4px 4px no-repeat,
+        linear-gradient(-135deg, transparent 50%, #111 50%) 8px 6px / 4px 4px no-repeat,
+        linear-gradient(to bottom, #ffffff, #ece9d8);
+    }
+
     .content {
       display: grid;
       grid-template-columns: 240px 1fr;
       gap: 12px;
       padding: 12px;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
     }
 
     .sidebar, .panel, .statusbar {
@@ -140,7 +239,11 @@
       background: var(--xp-bg);
     }
 
-    .sidebar { padding: 8px; min-height: 520px; }
+    .sidebar {
+      padding: 8px;
+      min-height: 0;
+      overflow-y: auto;
+    }
 
     .sidebar-title {
       background: linear-gradient(to right, #0054e3, #76a7ff);
@@ -179,7 +282,13 @@
       flex: 0 0 18px;
     }
 
-    .main { display: grid; gap: 12px; }
+    .main {
+      display: grid;
+      gap: 12px;
+      min-height: 0;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
 
     .home-page {
       display: grid;
@@ -562,6 +671,17 @@
     .mode-info { line-height: 1.55; }
     .kbd { display: inline-block; min-width: 24px; padding: 1px 6px; border: 1px solid #808080; background: #fffef2; font-weight: bold; }
 
+
+
+    /* NeuroClick: expand Mode Intelligence / Recent History when no latest result is visible */
+    #neuroclick-setup .result-card:not(.show) + .panel {
+      grid-column: 1 / -1;
+    }
+
+    #neuroclick-setup .result-card:not(.show) + .panel .history-list {
+      max-height: none;
+    }
+
     .toast {
       position: fixed;
       left: 50%;
@@ -589,6 +709,7 @@
       gap: 4px;
       padding: 4px;
       margin: 0 12px 12px;
+      flex: 0 0 auto;
     }
 
     .status-cell {
@@ -605,11 +726,113 @@
       text-align: center;
     }
 
+
+
+    .archive-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .archive-hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 12px;
+    }
+
+    .archive-note {
+      background: #fffef7;
+      border: 1px dashed #808080;
+      padding: 10px;
+      line-height: 1.55;
+    }
+
+    .file-shelf {
+      display: grid;
+      gap: 8px;
+    }
+
+    .file-row {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      background: #fffef7;
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #808080;
+      border-bottom: 1px solid #808080;
+      padding: 10px;
+      color: #111;
+      text-decoration: none;
+      width: 100%;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .file-row:hover {
+      background: #fffbe8;
+      outline: 1px solid #316ac5;
+    }
+
+    .file-row-icon {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      border: 1px solid #aca899;
+      background: white;
+      padding: 3px;
+    }
+
+    .file-meta {
+      text-align: left;
+    }
+
+    .file-meta h3 {
+      margin-bottom: 4px;
+    }
+
+    .file-meta p {
+      margin-bottom: 0;
+      line-height: 1.45;
+    }
+
+    .file-action {
+      white-space: nowrap;
+      border: 1px solid #808080;
+      background: #fffef2;
+      padding: 4px 7px;
+      box-shadow: inset 1px 1px #ffffff;
+      font-weight: bold;
+    }
+
+    .hash-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .hash-link {
+      color: #111;
+      text-decoration: none;
+      background: #fffef7;
+      border: 1px solid #aca899;
+      padding: 8px;
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .hash-link:hover {
+      background: #fffbe8;
+      border-color: #316ac5;
+    }
+
     @media (max-width: 860px) {
-      body { align-items: flex-start; padding: 10px; }
-      .content, .hero, .controls-panel { grid-template-columns: 1fr; }
+      body { align-items: center; padding: 10px; }
+      .desktop { height: calc(100vh - 20px); }
+      .content, .hero, .archive-hero, .controls-panel { grid-template-columns: 1fr; }
       .sidebar { min-height: auto; }
-      .grid, .catalog-grid, .link-list { grid-template-columns: 1fr; }
+      .grid, .catalog-grid, .link-list, .hash-list { grid-template-columns: 1fr; }
       .stats, .result-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -617,6 +840,8 @@
       .stats, .result-grid { grid-template-columns: 1fr; }
       .custom-time { flex-direction: column; align-items: stretch; }
       input[type=number], .small-btn, .primary-btn, .secondary-btn { width: 100%; }
+      .file-row { grid-template-columns: 46px 1fr; }
+      .file-action { grid-column: 1 / -1; text-align: center; }
     }
   </style>
 </head>
@@ -641,6 +866,7 @@
         <button class="tool-btn" onclick="scrollActive('tools')">Tools</button>
         <button class="tool-btn" onclick="scrollActive('setup')">Setup</button>
         <button class="tool-btn" onclick="scrollActive('download')">Download</button>
+        <button class="tool-btn" onclick="showArchive()">Archive</button>
         <button class="tool-btn" onclick="openHelp()">Help</button>
         <a class="tool-btn" href="https://github.com/TheSimonMC/ProductManager/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
       </nav>
@@ -652,6 +878,7 @@
           <button class="nav-item" id="nav-autoclicker" type="button" onclick="showProduct('autoclicker')"><span class="small-icon"></span>AutoClicker.exe</button>
           <button class="nav-item" id="nav-neuroclick" type="button" onclick="showProduct('neuroclick')"><span class="small-icon"></span>NeuroClick</button>
           <button class="nav-item" id="nav-diskformat" type="button" onclick="showProduct('diskformat')"><span class="small-icon"></span>DiskFormat.exe</button>
+          <button class="nav-item" id="nav-archive" type="button" onclick="showArchive()"><span class="small-icon"></span>Download Archive</button>
           <button class="nav-item" type="button" onclick="showHome(); scrollToPanel('quick-actions')"><span class="small-icon"></span>Utilities</button>
           <button class="nav-item" type="button" onclick="openHelp()"><span class="small-icon"></span>Settings / Help</button>
           <br />
@@ -676,6 +903,7 @@
                   <button class="xp-button primary" onclick="showProduct('autoclicker')">Open AutoClicker</button>
                   <button class="xp-button primary" onclick="showProduct('neuroclick')">Open NeuroClick</button>
                   <button class="xp-button primary" onclick="showProduct('diskformat')">Open DiskFormat</button>
+                  <button class="xp-button" onclick="showArchive()">Download Archive</button>
                   <button class="xp-button" onclick="openHelp()">Help</button>
                 </div>
               </section>
@@ -713,7 +941,7 @@
                       <p><strong>Browser CPS tester</strong></p>
                     </div>
                   </div>
-                  <p>Click speed test with modes, target challenges, live stats, local history, ranking, and AI-style result feedback.</p>
+                  <p>Click speed test with modes, target challenges, live stats, local history, ranking, and result feedback.</p>
                   <span class="badge">Open Tester</span>
                 </button>
 
@@ -740,10 +968,85 @@
                 <button class="quick-link" type="button" onclick="showProduct('neuroclick'); setTimeout(() => document.getElementById('startBtn').click(), 250)"><span class="small-icon"></span>Start CPS Test</button>
                 <button class="quick-link" type="button" onclick="showProduct('diskformat')"><span class="small-icon"></span>Open DiskFormat.exe</button>
                 <a class="quick-link" href="DiskFormat.exe" download><span class="small-icon"></span>Download DiskFormat.exe</a>
+                <button class="quick-link" type="button" onclick="showArchive()"><span class="small-icon"></span>Open Download Archive</button>
                 <button class="quick-link" type="button" onclick="openHelp()"><span class="small-icon"></span>Open Help Center</button>
               </div>
             </section>
 
+          </div>
+
+          <div class="product-page" id="page-archive" data-product="archive">
+            <section class="archive-shell" id="archive-overview">
+              <div class="archive-hero">
+                <section class="panel">
+                  <h1>Download Archive</h1>
+                  <p class="tagline">
+                    A compact file shelf for Product Manager downloads. Use this page when you only need the files,
+                    direct project anchors, or a fast route back to the full Product Manager catalog.
+                  </p>
+                  <div class="badge-row">
+                    <span class="badge">Product Manager</span>
+                    <span class="badge">Archive Page</span>
+                    <span class="badge">Direct Downloads</span>
+                    <span class="badge">Hash Links</span>
+                  </div>
+                  <a class="xp-button primary" href="https://rcnhub.de/pm/">Open Product Manager</a>
+                  <a class="xp-button" href="#homepage">#homepage</a>
+                </section>
+
+                <section class="panel" id="archive-readme">
+                  <h2>Readme</h2>
+                  <div class="archive-note">
+                    This archive lists the current downloadable Product Manager files and browser tools.
+                    Windows EXE files should only be run if downloaded from your own trusted source.
+                  </div>
+                </section>
+              </div>
+
+              <section class="panel" id="archive-files">
+                <h2>File Shelf</h2>
+                <div class="file-shelf">
+                  <a class="file-row" href="Autoclicker.exe" download>
+                    <img class="file-row-icon" src="icon.png" alt="" />
+                    <div class="file-meta">
+                      <h3>AutoClicker.exe</h3>
+                      <p>Windows GUI autoclicker with adjustable CPS, delay, human mode, and trigger options.</p>
+                    </div>
+                    <span class="file-action">Download</span>
+                  </a>
+
+                  <button class="file-row" type="button" onclick="showProduct('neuroclick')">
+                    <img class="file-row-icon" src="neuroclick.png" alt="" />
+                    <div class="file-meta">
+                      <h3>NeuroClick</h3>
+                      <p>Browser CPS tester with modes, live stats, local history, and result feedback.</p>
+                    </div>
+                    <span class="file-action">Open</span>
+                  </button>
+
+                  <a class="file-row" href="DiskFormat.exe" download>
+                    <img class="file-row-icon" src="format.png" alt="" />
+                    <div class="file-meta">
+                      <h3>DiskFormat.exe</h3>
+                      <p>Windows administrator storage tool based on DiskPart. Use carefully because formatting can erase data.</p>
+                    </div>
+                    <span class="file-action">Download</span>
+                  </a>
+                </div>
+              </section>
+
+              <section class="panel" id="archive-hashes">
+                <h2>Direct Page Links</h2>
+                <div class="hash-list">
+                  <a class="hash-link" href="#homepage">#homepage</a>
+                  <a class="hash-link" href="#autoclicker">#autoclicker</a>
+                  <a class="hash-link" href="#neuroclick">#neuroclick</a>
+                  <a class="hash-link" href="#diskformat">#diskformat</a>
+                  <a class="hash-link" href="#archive">#archive</a>
+                  <a class="hash-link" href="#downloads">#downloads</a>
+                </div>
+              </section>
+            </section>
           </div>
 
           <div class="product-page" id="page-autoclicker" data-product="autoclicker">
@@ -924,7 +1227,7 @@ Only use it on drives you own, back up important files first, and always double-
                 <h1>NeuroClick CPS Tester</h1>
                 <p class="tagline">
                   A browser-based CPS tester with selectable modes, adjustable test duration,
-                  target challenges, live stats, local history, and AI-style performance feedback.
+                  target challenges, live stats, local history, and performance feedback.
                 </p>
                 <div class="badge-row">
                   <span class="badge">CPS Testing</span>
@@ -940,7 +1243,7 @@ Only use it on drives you own, back up important files first, and always double-
                   <img class="product-icon" src="neuroclick.png" alt="NeuroClick icon" />
                   <h2>Current Product</h2>
                   <p><strong>NeuroClick</strong></p>
-                  <p>A CPS tester for measuring click speed, accuracy, performance rank, and recent results with AI-style feedback.</p>
+                  <p>A CPS tester for measuring click speed, accuracy, performance rank, and recent results with feedback.</p>
                   <button class="xp-button" id="soundToggle" type="button" aria-label="Toggle sound">Sound: On</button>
                   <button class="xp-button" id="themeToggle" type="button" aria-label="Toggle theme">Theme</button>
                 </div>
@@ -988,7 +1291,6 @@ Only use it on drives you own, back up important files first, and always double-
                 <button class="secondary-btn" id="restartBtn" type="button" disabled>Restart</button>
                 <button class="secondary-btn" id="shareBtn" type="button" disabled>Share Result</button>
               </div>
-              <p class="warning">Fair-use warning: autoclickers or macros invalidate the result. Use manual input only.</p>
             </section>
 
             <div class="hero" id="neuroclick-setup">
@@ -1003,7 +1305,7 @@ Only use it on drives you own, back up important files first, and always double-
                   <div class="result-item"><span>Accuracy</span><strong id="resultAccuracy">100%</strong></div>
                   <div class="result-item"><span>Mode</span><strong id="resultMode">Normal</strong></div>
                 </div>
-                <p class="feedback" id="feedbackText">Complete a test to receive AI-style feedback.</p>
+                <p class="feedback" id="feedbackText">Complete a test to receive feedback.</p>
                 <div class="actions"><button class="primary-btn" id="resultRestartBtn" type="button">Restart Test</button></div>
               </section>
 
@@ -1059,12 +1361,17 @@ Only use it on drives you own, back up important files first, and always double-
           <p>DiskFormat uses DiskPart to format or repair disks and USB sticks. It requires administrator permissions and can erase data, so verify the selected drive before continuing.</p>
         </div>
         <div class="help-topic">
+          <h3>Download Archive</h3>
+          <p>Open the archive page for direct downloads and stable links such as <strong>#homepage</strong>, <strong>#autoclicker</strong>, <strong>#neuroclick</strong>, <strong>#diskformat</strong>, and <strong>#archive</strong>.</p>
+        </div>
+        <div class="help-topic">
           <h3>Antivirus Notice</h3>
           <p>Windows or other antivirus programs may show a false positive because DiskFormat can directly modify disks. Only run your own trusted build.</p>
         </div>
       </div>
       <div class="dialog-footer">
         <button class="xp-button" type="button" onclick="showHome(); closeHelp()">Open Homepage</button>
+        <button class="xp-button" type="button" onclick="showArchive(); closeHelp()">Open Archive</button>
         <a class="xp-button" href="https://github.com/TheSimonMC/ProductManager/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
         <button class="xp-button primary" type="button" onclick="closeHelp()">Close</button>
       </div>
@@ -1081,6 +1388,11 @@ Only use it on drives you own, back up important files first, and always double-
       if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    function scrollMainTop() {
+      const main = document.querySelector('.main');
+      if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function scrollActive(section) {
       const map = {
         home: {
@@ -1088,6 +1400,12 @@ Only use it on drives you own, back up important files first, and always double-
           tools: "home-tools",
           setup: "quick-actions",
           download: "quick-actions"
+        },
+        archive: {
+          overview: "archive-overview",
+          tools: "archive-files",
+          setup: "archive-readme",
+          download: "archive-files"
         },
         diskformat: {
           overview: "diskformat-overview",
@@ -1117,16 +1435,40 @@ Only use it on drives you own, back up important files first, and always double-
       document.getElementById("page-autoclicker").classList.remove("active");
       document.getElementById("page-neuroclick").classList.remove("active");
       document.getElementById("page-diskformat").classList.remove("active");
+      document.getElementById("page-archive").classList.remove("active");
       document.getElementById("nav-home").classList.add("active");
       document.getElementById("nav-autoclicker").classList.remove("active");
       document.getElementById("nav-neuroclick").classList.remove("active");
       document.getElementById("nav-diskformat").classList.remove("active");
+      document.getElementById("nav-archive").classList.remove("active");
       document.getElementById("windowTitle").textContent = "Software Catalog - Product Manager";
       document.getElementById("infoStatus").textContent = "Available";
       document.getElementById("infoPlatform").textContent = "Windows / Browser";
       document.getElementById("infoFile").textContent = "index.html";
       document.getElementById("statusText").textContent = "Homepage";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setPageHash("homepage");
+      scrollMainTop();
+    }
+
+    function showArchive() {
+      activeProduct = "archive";
+      document.getElementById("page-home").classList.remove("active");
+      document.getElementById("page-autoclicker").classList.remove("active");
+      document.getElementById("page-neuroclick").classList.remove("active");
+      document.getElementById("page-diskformat").classList.remove("active");
+      document.getElementById("page-archive").classList.add("active");
+      document.getElementById("nav-home").classList.remove("active");
+      document.getElementById("nav-autoclicker").classList.remove("active");
+      document.getElementById("nav-neuroclick").classList.remove("active");
+      document.getElementById("nav-diskformat").classList.remove("active");
+      document.getElementById("nav-archive").classList.add("active");
+      document.getElementById("windowTitle").textContent = "Download Archive - Product Manager";
+      document.getElementById("infoStatus").textContent = "Archive";
+      document.getElementById("infoPlatform").textContent = "Windows / Browser";
+      document.getElementById("infoFile").textContent = "Archive shelf";
+      document.getElementById("statusText").textContent = "Download Archive";
+      setPageHash("archive");
+      scrollMainTop();
     }
 
     function openHelp() {
@@ -1144,10 +1486,12 @@ Only use it on drives you own, back up important files first, and always double-
       document.getElementById("page-autoclicker").classList.toggle("active", product === "autoclicker");
       document.getElementById("page-neuroclick").classList.toggle("active", product === "neuroclick");
       document.getElementById("page-diskformat").classList.toggle("active", product === "diskformat");
+      document.getElementById("page-archive").classList.remove("active");
       document.getElementById("nav-home").classList.remove("active");
       document.getElementById("nav-autoclicker").classList.toggle("active", product === "autoclicker");
       document.getElementById("nav-neuroclick").classList.toggle("active", product === "neuroclick");
       document.getElementById("nav-diskformat").classList.toggle("active", product === "diskformat");
+      document.getElementById("nav-archive").classList.remove("active");
 
       const info = {
         autoclicker: {
@@ -1175,7 +1519,19 @@ Only use it on drives you own, back up important files first, and always double-
       document.getElementById("infoPlatform").textContent = info[product].platform;
       document.getElementById("infoFile").textContent = info[product].file;
       document.getElementById("statusText").textContent = info[product].status;
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setPageHash(product);
+      scrollMainTop();
+    }
+
+    function setPageHash(hash) {
+      if (window.location.hash !== "#" + hash) history.replaceState(null, "", "#" + hash);
+    }
+
+    function routeFromHash() {
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (hash === "homepage" || hash === "home" || hash === "") showHome();
+      else if (hash === "archive" || hash === "downloads" || hash === "download") showArchive();
+      else if (["autoclicker", "neuroclick", "diskformat"].includes(hash)) showProduct(hash);
     }
 
     const modes={normal:{label:"Normal",info:"Normal Mode measures raw clicks per second in a standard fixed-duration test.",suggestedDurations:[1,5,10,15,30,60]},burst:{label:"Burst",info:"Burst Mode is tuned for short explosive tests. Try 1–3 seconds and focus on immediate acceleration.",suggestedDurations:[1,2,3,5]},endurance:{label:"Endurance",info:"Endurance Mode favors consistency over time. Longer tests reveal rhythm stability and fatigue control.",suggestedDurations:[30,60]},challenge:{label:"Challenge",info:"Challenge Mode moves a target around the zone. Only target hits count, so speed and tracking both matter.",suggestedDurations:[5,10,15,30]},accuracy:{label:"Accuracy",info:"Accuracy Mode penalizes missed clicks outside the target. Prioritize controlled input over raw speed.",suggestedDurations:[5,10,15,30]},coach:{label:"AI Coach",info:"AI Coach Mode runs a standard CPS test and gives a richer post-test analysis with practical tips.",suggestedDurations:[5,10,15,30,60]}};
@@ -1202,7 +1558,7 @@ Only use it on drives you own, back up important files first, and always double-
     function selectMode(mode){if(!["idle","finished"].includes(state.status))return;state.mode=mode;if(!modes[mode].suggestedDurations.includes(state.duration))state.duration=modes[mode].suggestedDurations[0];resetStatsOnly();renderModeTabs();renderDurationTabs();updateModeInfo();updateZoneIdleText();updateControls()}
     function selectDuration(d){if(!["idle","finished"].includes(state.status))return;state.duration=d;resetStatsOnly();renderDurationTabs();updateZoneIdleText()}
     function useCustomDuration(){if(!["idle","finished"].includes(state.status))return;const v=Number(el.customDuration.value);if(!Number.isFinite(v)||v<1||v>300){showToast("Enter 1–300 seconds");return}state.duration=Math.round(v);renderDurationTabs();updateZoneIdleText();resetStatsOnly();showToast(`Custom duration set to ${state.duration}s`)}
-    function startCountdown(){showProduct("neuroclick");if(state.status==="countdown"||state.status==="running")return;resetStatsOnly();state.status="countdown";updateControls();el.countdown.classList.add("show");el.clickZone.classList.remove("ready");el.statusKicker.textContent="Calibration";el.zoneTitle.textContent="Get Ready";el.zoneSubtitle.textContent="The test starts after the countdown. Keep input manual and consistent.";let count=3;setCountdownNumber(count);state.countdownId=setInterval(()=>{count--;if(count>0)setCountdownNumber(count);else{clearInterval(state.countdownId);state.countdownId=null;el.countdown.classList.remove("show");beginTest()}},1000)}
+    function startCountdown(){if(activeProduct!=="neuroclick"){showProduct("neuroclick");setTimeout(()=>scrollToPanel("neuroclick-tools"),80)}else{setPageHash("neuroclick")}if(state.status==="countdown"||state.status==="running")return;resetStatsOnly();state.status="countdown";updateControls();el.countdown.classList.add("show");el.clickZone.classList.remove("ready");el.statusKicker.textContent="Calibration";el.zoneTitle.textContent="Get Ready";el.zoneSubtitle.textContent="The test starts after the countdown. Keep input manual and consistent.";let count=3;setCountdownNumber(count);state.countdownId=setInterval(()=>{count--;if(count>0)setCountdownNumber(count);else{clearInterval(state.countdownId);state.countdownId=null;el.countdown.classList.remove("show");beginTest()}},1000)}
     function setCountdownNumber(v){el.countdownNumber.textContent=v;el.countdownNumber.style.animation="none";requestAnimationFrame(()=>el.countdownNumber.style.animation="")}
     function beginTest(){state.status="running";state.startTime=performance.now();state.elapsed=0;state.clickTimeline=[];state.bestBurst=0;el.clickZone.classList.add("running");el.statusKicker.textContent=`${modes[state.mode].label} Mode`;el.zoneTitle.textContent="CLICK";el.zoneSubtitle.innerHTML='Click rapidly or press <span class="kbd">Space</span>. Time remaining is shown above.';if(requiresTargetHit())placeTarget();updateControls();tick()}
     function tick(){const now=performance.now();state.elapsed=Math.min((now-state.startTime)/1000,state.duration);updateStats();if(state.elapsed>=state.duration){finishTest();return}state.timerId=requestAnimationFrame(tick)}
@@ -1213,7 +1569,7 @@ Only use it on drives you own, back up important files first, and always double-
     function createRipple(x,y,miss){const r=el.clickZone.getBoundingClientRect(),s=document.createElement("span");s.className=`ripple ${miss?"miss-ripple":""}`;s.style.left=x-r.left+"px";s.style.top=y-r.top+"px";el.clickZone.appendChild(s);setTimeout(()=>s.remove(),540)}
     function trimOldBursts(){const cutoff=performance.now()-1000;state.clickTimeline=state.clickTimeline.filter(t=>t>=cutoff)}
     function getCurrentBurstCps(){trimOldBursts();return state.clickTimeline.length}
-    function finishTest(){cancelAnimationFrame(state.timerId);state.timerId=null;state.status="finished";hideTarget();el.clickZone.classList.remove("running");el.clickZone.classList.add("ready");const cps=state.clicks/state.duration,accuracy=getAccuracy(),rank=getRank(cps),result={id:Date.now(),mode:modes[state.mode].label,modeKey:state.mode,duration:state.duration,clicks:state.clicks,cps:Number(cps.toFixed(2)),burst:Number(state.bestBurst.toFixed(2)),accuracy:Number(accuracy.toFixed(1)),rank,date:new Date().toISOString()};state.latestResult=result;saveResult(result);renderResult(result);renderHistory();updateControls();el.statusKicker.textContent="Complete";el.zoneTitle.textContent=`${result.cps.toFixed(2)} CPS`;el.zoneSubtitle.textContent=`${result.rank} result. Review your AI-style analysis and restart when ready.`}
+    function finishTest(){cancelAnimationFrame(state.timerId);state.timerId=null;state.status="finished";hideTarget();el.clickZone.classList.remove("running");el.clickZone.classList.add("ready");const cps=state.clicks/state.duration,accuracy=getAccuracy(),rank=getRank(cps),result={id:Date.now(),mode:modes[state.mode].label,modeKey:state.mode,duration:state.duration,clicks:state.clicks,cps:Number(cps.toFixed(2)),burst:Number(state.bestBurst.toFixed(2)),accuracy:Number(accuracy.toFixed(1)),rank,date:new Date().toISOString()};state.latestResult=result;saveResult(result);renderResult(result);renderHistory();updateControls();el.statusKicker.textContent="Complete";el.zoneTitle.textContent=`${result.cps.toFixed(2)} CPS`;el.zoneSubtitle.textContent=`${result.rank} result. Review your analysis and restart when ready.`}
     function resetTest(){clearInterval(state.countdownId);cancelAnimationFrame(state.timerId);state.countdownId=null;state.timerId=null;state.status="idle";hideTarget();resetStatsOnly();el.countdown.classList.remove("show");el.clickZone.classList.remove("running","shake");el.clickZone.classList.add("ready");updateZoneIdleText();updateControls()}
     function resetStatsOnly(){state.clicks=0;state.misses=0;state.attempts=0;state.elapsed=0;state.clickTimeline=[];state.bestBurst=0;updateStats()}
     function updateStats(){const cps=state.elapsed>0?state.clicks/state.elapsed:0,remaining=Math.max(0,state.duration-state.elapsed),progress=state.status==="running"?state.elapsed/state.duration*100:0;el.clicksStat.textContent=state.clicks;el.timeStat.textContent=remaining.toFixed(2)+"s";el.cpsStat.textContent=cps.toFixed(2);el.accuracyStat.textContent=getAccuracy().toFixed(0)+"%";el.progressBar.style.width=Math.min(100,progress)+"%"}
@@ -1238,6 +1594,8 @@ Only use it on drives you own, back up important files first, and always double-
     function showToast(msg){el.toast.textContent=msg;el.toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>el.toast.classList.remove("show"),1800)}
 
     initNeuroClick();
+    window.addEventListener("hashchange", routeFromHash);
+    routeFromHash();
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") closeHelp();
