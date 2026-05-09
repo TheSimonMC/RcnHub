@@ -682,6 +682,36 @@
       max-height: none;
     }
 
+
+    .xp-warning-box {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+      align-items: start;
+      background: #fffef7;
+      border: 1px inset #999;
+      padding: 10px;
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+
+    .xp-warning-symbol {
+      width: 32px;
+      height: 32px;
+      margin-top: 1px;
+      background: url("warn.ico") center / contain no-repeat;
+      flex: 0 0 32px;
+    }
+
+    .xp-warning-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .xp-warning-box p {
+      margin-bottom: 0;
+    }
+
     .toast {
       position: fixed;
       left: 50%;
@@ -1148,6 +1178,14 @@
                   <span class="badge">DiskPart Based</span>
                   <span class="badge">USB / Disk Formatting</span>
                   <span class="badge">Data Erasing Tool</span>
+                </div>
+
+                <div class="xp-warning-box" role="alert" aria-label="DiskFormat warning">
+                  <span class="xp-warning-symbol" aria-hidden="true"></span>
+                  <div>
+                    <div class="xp-warning-title">Warning</div>
+                    <p>This tool can permanently erase data. Use only on drives you own and only after backing up important files.</p>
+                  </div>
                 </div>
                 <a class="xp-button primary" href="DiskFormat.exe" download>Download DiskFormat.exe</a>
                 <button class="xp-button" onclick="scrollToPanel('diskformat-setup')">View Setup</button>
