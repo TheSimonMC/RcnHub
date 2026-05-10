@@ -577,29 +577,16 @@
     .stat strong { font-size: 24px; }
 
     .progress-shell {
-      height: 16px;
-      background: #ffffff;
-      border-top: 1px solid #808080;
-      border-left: 1px solid #808080;
-      border-right: 1px solid #ffffff;
-      border-bottom: 1px solid #ffffff;
-      box-shadow: inset 1px 1px 0 #c0c0c0;
+      height: 14px;
+      background: white;
+      border: 1px inset #999;
       overflow: hidden;
-      padding: 1px;
     }
 
     .progress-bar {
       height: 100%;
       width: 0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          #19b219 0 8px,
-          #ffffff 8px 10px
-        );
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.7),
-        inset 0 -1px 0 rgba(0,0,0,0.18);
+      background: linear-gradient(to right, #245edb, #3ca323);
     }
 
     .click-zone {
@@ -723,6 +710,35 @@
 
     .xp-warning-box p {
       margin-bottom: 0;
+    }
+
+
+    .download-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .download-note {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.45;
+      margin: 6px 4px 0;
+    }
+
+    .file-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: flex-end;
+    }
+
+    .file-actions .file-action {
+      display: inline-block;
+      color: #111;
+      text-decoration: none;
     }
 
     .toast {
@@ -1005,12 +1021,14 @@
             <section class="panel" id="quick-actions">
               <h2>Quick Actions</h2>
               <div class="link-list">
-                <a class="quick-link" href="Autoclicker.exe" download><span class="small-icon"></span>Download AutoClicker.exe</a>
+                <a class="quick-link" href="Autoclicker.exe" download><span class="small-icon"></span>Download AutoClicker Portable</a>
+                <a class="quick-link" href="Product_Manager_Setup.exe" download><span class="small-icon"></span>Download Product Manager Setup</a>
                 <button class="quick-link" type="button" onclick="showProduct('autoclicker'); scrollToPanel('autoclicker-setup')"><span class="small-icon"></span>AutoClicker Setup</button>
                 <button class="quick-link" type="button" onclick="showProduct('neuroclick'); scrollToPanel('neuroclick-tools')"><span class="small-icon"></span>Open NeuroClick Test Console</button>
                 <button class="quick-link" type="button" onclick="showProduct('neuroclick'); setTimeout(() => document.getElementById('startBtn').click(), 250)"><span class="small-icon"></span>Start CPS Test</button>
                 <button class="quick-link" type="button" onclick="showProduct('diskformat')"><span class="small-icon"></span>Open DiskFormat.exe</button>
-                <a class="quick-link" href="DiskFormat.exe" download><span class="small-icon"></span>Download DiskFormat.exe</a>
+                <a class="quick-link" href="DiskFormat.exe" download><span class="small-icon"></span>Download DiskFormat Portable</a>
+                <a class="quick-link" href="Product_Manager_Setup.exe" download><span class="small-icon"></span>Download Setup Installer</a>
                 <button class="quick-link" type="button" onclick="showArchive()"><span class="small-icon"></span>Open Download Archive</button>
                 <button class="quick-link" type="button" onclick="openHelp()"><span class="small-icon"></span>Open Help Center</button>
               </div>
@@ -1055,7 +1073,7 @@
                       <h3>AutoClicker.exe</h3>
                       <p>Windows GUI autoclicker with adjustable CPS, delay, human mode, and trigger options.</p>
                     </div>
-                    <span class="file-action">Download</span>
+                    <span class="file-action">Portable</span>
                   </a>
 
                   <button class="file-row" type="button" onclick="showProduct('neuroclick')">
@@ -1073,7 +1091,16 @@
                       <h3>DiskFormat.exe</h3>
                       <p>Windows administrator storage tool based on DiskPart. Use carefully because formatting can erase data.</p>
                     </div>
-                    <span class="file-action">Download</span>
+                    <span class="file-action">Portable</span>
+                  </a>
+
+                  <a class="file-row" href="Product_Manager_Setup.exe" download>
+                    <img class="file-row-icon" src="productmngr.ico" alt="" />
+                    <div class="file-meta">
+                      <h3>Product_Manager_Setup.exe</h3>
+                      <p>Setup installer for Product Manager tools. Use this when you prefer installation instead of portable EXE files.</p>
+                    </div>
+                    <span class="file-action">Setup</span>
                   </a>
                 </div>
               </section>
@@ -1107,8 +1134,12 @@
                   <span class="badge">Human Mode</span>
                   <span class="badge">Keyboard / Mouse Trigger</span>
                 </div>
-                <a class="xp-button primary" href="Autoclicker.exe" download>Download AutoClicker.exe</a>
-                <button class="xp-button" onclick="scrollToPanel('autoclicker-setup')">View Setup</button>
+                <div class="download-choices">
+                  <a class="xp-button primary" href="Autoclicker.exe" download>Download Portable</a>
+                  <a class="xp-button" href="Product_Manager_Setup.exe" download>Download Setup</a>
+                  <button class="xp-button" onclick="scrollToPanel('autoclicker-setup')">View Setup</button>
+                </div>
+                <p class="download-note">Choose Portable for a single EXE, or Setup for the Product Manager installer.</p>
               </section>
 
               <section class="panel" id="autoclicker-download">
@@ -1117,7 +1148,10 @@
                   <h2>Current Product</h2>
                   <p><strong>Autoclicker.exe</strong></p>
                   <p>A GUI Windows autoclicker with adjustable CPS, human-like timing, custom triggers and hold/toggle modes.</p>
-                  <a class="xp-button primary" href="Autoclicker.exe" download>Get EXE</a>
+                  <div class="download-choices">
+                    <a class="xp-button primary" href="Autoclicker.exe" download>Portable</a>
+                    <a class="xp-button" href="Product_Manager_Setup.exe" download>Setup</a>
+                  </div>
                 </div>
               </section>
             </div>
@@ -1162,12 +1196,21 @@
 
             <section class="panel" id="autoclicker-setup">
               <h2>Setup</h2>
-              <div class="preview">1. Download Autoclicker.exe.
+              <div class="preview">Portable option:
+1. Download Autoclicker.exe.
 2. Move it to any folder you want, such as Downloads, Desktop, or a tools folder.
 3. Double-click Autoclicker.exe to launch the program.
+
+Setup option:
+1. Download Product_Manager_Setup.exe.
+2. Run the setup installer.
+3. Open Product Manager from the installed shortcut or folder.
 4. Configure CPS, start delay, trigger key or mouse button, and hold/toggle mode.</div>
               <br />
-              <a class="xp-button primary" href="Autoclicker.exe" download>Download AutoClicker.exe</a>
+              <div class="download-choices">
+                <a class="xp-button primary" href="Autoclicker.exe" download>Download Portable</a>
+                <a class="xp-button" href="Product_Manager_Setup.exe" download>Download Setup</a>
+              </div>
             </section>
 
             <section class="panel">
@@ -1200,8 +1243,12 @@
                     <p>This tool can permanently erase data. Use only on drives you own and only after backing up important files.</p>
                   </div>
                 </div>
-                <a class="xp-button primary" href="DiskFormat.exe" download>Download DiskFormat.exe</a>
-                <button class="xp-button" onclick="scrollToPanel('diskformat-setup')">View Setup</button>
+                <div class="download-choices">
+                  <a class="xp-button primary" href="DiskFormat.exe" download>Download Portable</a>
+                  <a class="xp-button" href="Product_Manager_Setup.exe" download>Download Setup</a>
+                  <button class="xp-button" onclick="scrollToPanel('diskformat-setup')">View Setup</button>
+                </div>
+                <p class="download-note">Choose Portable for the direct EXE, or Setup for the Product Manager installer.</p>
               </section>
 
               <section class="panel" id="diskformat-download">
@@ -1210,7 +1257,10 @@
                   <h2>Current Product</h2>
                   <p><strong>DiskFormat.exe</strong></p>
                   <p>DiskPart-based Windows utility for formatting or fixing disks and USB sticks. Run as administrator.</p>
-                  <a class="xp-button primary" href="DiskFormat.exe" download>Get EXE</a>
+                  <div class="download-choices">
+                    <a class="xp-button primary" href="DiskFormat.exe" download>Portable</a>
+                    <a class="xp-button" href="Product_Manager_Setup.exe" download>Setup</a>
+                  </div>
                 </div>
               </section>
             </div>
@@ -1247,14 +1297,23 @@
 
             <section class="panel" id="diskformat-setup">
               <h2>Setup</h2>
-              <div class="preview">1. Download DiskFormat.exe.
+              <div class="preview">Portable option:
+1. Download DiskFormat.exe.
 2. Right-click DiskFormat.exe and choose "Run as administrator".
 3. Select the correct disk or USB stick carefully.
+
+Setup option:
+1. Download Product_Manager_Setup.exe.
+2. Run the setup installer.
+3. Open Product Manager, then open DiskFormat.
 4. Confirm the operation only after checking the drive size and name.
 5. Let the tool run DiskPart formatting or repair commands.
 6. If Windows or an antivirus shows a warning, verify that the file is your own build before allowing it.</div>
               <br />
-              <a class="xp-button primary" href="DiskFormat.exe" download>Download DiskFormat.exe</a>
+              <div class="download-choices">
+                <a class="xp-button primary" href="DiskFormat.exe" download>Download Portable</a>
+                <a class="xp-button" href="Product_Manager_Setup.exe" download>Download Setup</a>
+              </div>
             </section>
 
             <section class="panel">
@@ -1401,7 +1460,7 @@ Only use it on drives you own, back up important files first, and always double-
         </div>
         <div class="help-topic">
           <h3>AutoClicker.exe</h3>
-          <p>Download <strong>Autoclicker.exe</strong>, then open it normally on Windows.</p>
+          <p>Download <strong>Autoclicker.exe</strong> as the portable version, or download <strong>Product_Manager_Setup.exe</strong> for the setup installer.</p>
         </div>
         <div class="help-topic">
           <h3>NeuroClick</h3>
@@ -1409,7 +1468,7 @@ Only use it on drives you own, back up important files first, and always double-
         </div>
         <div class="help-topic">
           <h3>DiskFormat.exe</h3>
-          <p>DiskFormat uses DiskPart to format or repair disks and USB sticks. It requires administrator permissions and can erase data, so verify the selected drive before continuing.</p>
+          <p>DiskFormat uses DiskPart to format or repair disks and USB sticks. Download <strong>DiskFormat.exe</strong> as portable, or <strong>Product_Manager_Setup.exe</strong> as setup. It requires administrator permissions and can erase data, so verify the selected drive before continuing.</p>
         </div>
         <div class="help-topic">
           <h3>Download Archive</h3>
