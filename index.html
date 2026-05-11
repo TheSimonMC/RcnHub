@@ -385,9 +385,17 @@
       border: 1px solid var(--border-light);
       display: grid;
       place-items: center;
-      color: var(--text);
-      font-weight: 780;
-      font-size: 0.86rem;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    .social-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: grayscale(100%);
+      transition: filter 0.35s ease, transform 0.35s ease;
     }
 
     .social strong {
@@ -535,6 +543,11 @@
       background: #ffffff;
     }
 
+    .social:hover .social-icon img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+
     .arrow {
       transition: transform 0.2s ease, color 0.2s ease;
     }
@@ -608,7 +621,8 @@
         will-change: auto;
       }
 
-      .profile-image {
+      .profile-image,
+      .social-icon img {
         filter: grayscale(100%);
         transition: none;
       }
@@ -787,7 +801,7 @@
       <div class="social-list">
         <a class="social reveal" style="--delay: 80ms" href="https://rcnhub.de/yt/" target="_blank" rel="noopener">
           <div class="social-main">
-            <div class="social-icon">YT</div>
+            <div class="social-icon"><img src="yt.ico" alt="YouTube icon" /></div>
             <div>
               <strong>YouTube</strong>
               <span>Videos and updates</span>
@@ -798,7 +812,7 @@
 
         <a class="social reveal" style="--delay: 160ms" href="https://rcnhub.de/tv/" target="_blank" rel="noopener">
           <div class="social-main">
-            <div class="social-icon">TW</div>
+            <div class="social-icon"><img src="tv.ico" alt="Twitch icon" /></div>
             <div>
               <strong>Twitch</strong>
               <span>Streams and live content</span>
@@ -809,7 +823,7 @@
 
         <a class="social reveal" style="--delay: 240ms" href="https://rcnhub.de/dc/" target="_blank" rel="noopener">
           <div class="social-main">
-            <div class="social-icon">DC</div>
+            <div class="social-icon"><img src="dc.ico" alt="Discord icon" /></div>
             <div>
               <strong>Discord</strong>
               <span>Join the Discord</span>
@@ -820,7 +834,7 @@
 
         <a class="social reveal" style="--delay: 300ms" href="https://rcnhub.de/donation/" target="_blank" rel="noopener">
           <div class="social-main">
-            <div class="social-icon">TS</div>
+            <div class="social-icon"><img src="tipeee.ico" alt="TipeeeStream icon" /></div>
             <div>
               <strong>TipeeeStream</strong>
               <span>Support through donation</span>
@@ -831,7 +845,7 @@
 
         <a class="social reveal" style="--delay: 360ms" href="https://rcnhub.de/pm/">
           <div class="social-main">
-            <div class="social-icon">PM</div>
+            <div class="social-icon"><img src="productmngr.ico" alt="ProductManager icon" /></div>
             <div>
               <strong>ProductManager</strong>
               <span>Open software catalog</span>
